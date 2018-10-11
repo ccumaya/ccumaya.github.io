@@ -62,23 +62,33 @@
 
             $(document).delegate('#btnHaunt', "click", function () {
                 var hauntNum = $('#ddlHauntNum').val()-0+1;
+                localStorage.hauntNum = hauntNum;
 
-                var simgurl = imgUrl(hauntNum, false);
-                var timgurl = imgUrl(hauntNum, true);
-                $('#imgSurvival').attr('src', simgurl);
-                $('#imgTraitor').attr('src', timgurl);
-
-                var saurl = aUrl(hauntNum, false);
-                var taurl = aUrl(hauntNum, true);
-                $('#aSurvival').attr('href', saurl);
-                $('#aTraitor').attr('href', taurl);
+                //取localstorage劇本號來顯示劇本
+                showHauntFromLs();
 
             });
+
+            showHauntFromLs();
         });
     </script>
 
     <script>
-        function ddd() {
+        function showHauntFromLs() {
+            //localStorage.height = $('#height').val();
+            var hauntNum = localStorage.hauntNum;
+
+            $("#ddlHauntNum").val(hauntNum-1);
+
+            var simgurl = imgUrl(hauntNum, false);
+            var timgurl = imgUrl(hauntNum, true);
+            $('#imgSurvival').attr('src', simgurl);
+            $('#imgTraitor').attr('src', timgurl);
+
+            var saurl = aUrl(hauntNum, false);
+            var taurl = aUrl(hauntNum, true);
+            $('#aSurvival').attr('href', saurl);
+            $('#aTraitor').attr('href', taurl);
         }
 
 
