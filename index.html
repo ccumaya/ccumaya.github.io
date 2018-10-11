@@ -1,83 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <meta charset="utf-8" />
     <title></title>
 
     <style>
-    body
-    {
-        font-size:4em;
-    }
-    input[type=radio]
-    {
-        height: 4em;
-        width: 4em;
-    }
-    select
-    {
-        /* font-size:1em; */
-        height: 4em;
-        font-size:1em;
-    }
-    
-    
+        body {
+            font-size: 4em;
+        }
+
+        input[type=radio] {
+            height: 4em;
+            width: 4em;
+        }
+
+        select {
+            /* font-size:1em; */
+            height: 4em;
+            font-size: 1em;
+        }
     </style>
-
-
-    <!-- 作祟劇本對照表 -->
-    <script>
-        var baseTable = [
-            [18, 7, 12, 38, 1, 9, 45, 42, 49, 28, 34, 43, 48],// 1st onem
-            [24, 7, 32, 5, 16, 6, 11, 25, 49, 20, 47, 39, 2],//2nd onem
-            [4, 7, 23, 46, 1, 13, 10, 25, 49, 41, 37, 43, 48],
-            [24, 33, 23, 38, 30, 13, 31, 48, 44, 20, 47, 15, 8],
-            [24, 3, 27, 5, 16, 6, 45, 42, 21, 20, 37, 39, 40],
-            [4, 33, 32, 38, 30, 13, 10, 42, 36, 28, 34, 15, 2],
-            [18, 3, 19, 19, 19, 22, 10, 25, 36, 41, 37, 15, 8],
-            [35, 29, 12, 46, 1, 22, 11, 22, 21, 41, 47, 43, 48],
-            [4, 33, 27, 46, 1, 9, 11, 25, 44, 17, 17, 17, 40],
-            [18, 3, 23, 46, 16, 22, 31, 32, 36, 41, 37, 39, 2],
-            [35, 29, 27, 5, 16, 6, 10, 35, 44, 20, 47, 43, 2],
-            [26, 50, 32, 50, 26, 26, 45, 14, 14, 26, 14, 50, 40],
-            [35, 29, 12, 5, 30, 9, 31, 42, 21, 28, 34, 15, 8]
-        ];
-
-        var widowTable = [
-            [18, 96, 7, 63, 88, 12, 38, 1, 9, 96, 100, 45, 42, 49, 96, 28, 86, 34, 43, 48, 96],
-            [24, 67, 7, 63, 88, 32, 5, 16, 6, 90, 87, 11, 25, 49, 89, 20, 71, 47, 39, 2, 70],
-            [4, 59, 7, 61, 88, 23, 46, 1, 13, 53, 83, 10, 25, 49, 94, 41, 69, 37, 43, 48, 91],
-            [24, 79, 33, 63, 101, 23, 38, 30, 13, 101, 83, 31, 48, 44, 101, 20, 69, 47, 15, 8, 101],
-            [24, 67, 3, 99, 60, 27, 5, 16, 6, 90, 54, 45, 42, 21, 89, 20, 82, 37, 39, 40, 91],
-            [97, 55, 55, 61, 55, 84, 72, 55, 66, 53, 101, 56, 55, 77, 89, 85, 69, 73, 65, 64, 80],
-            [4, 59, 33, 61, 75, 32, 38, 30, 13, 75, 83, 10, 42, 36, 75, 28, 75, 34, 15, 2, 91],
-            [18, 79, 3, 52, 88, 19, 19, 19, 22, 53, 54, 10, 25, 36, 76, 41, 71, 37, 15, 8, 70],
-            [35, 79, 29, 52, 92, 12, 46, 1, 22, 92, 100, 11, 22, 21, 92, 41, 86, 47, 43, 48, 92],
-            [4, 79, 33, 52, 88, 27, 46, 1, 9, 68, 100, 11, 25, 44, 76, 17, 71, 17, 17, 40, 91],
-            [18, 67, 3, 99, 60, 23, 46, 61, 22, 53, 87, 31, 32, 36, 89, 41, 82, 37, 39, 2, 80],
-            [35, 98, 29, 98, 98, 27, 5, 16, 6, 90, 54, 10, 35, 44, 76, 20, 82, 47, 43, 2, 98],
-            [74, 67, 95, 99, 74, 84, 72, 58, 66, 68, 87, 74, 74, 95, 95, 85, 86, 73, 65, 95, 80],
-            [26, 59, 50, 61, 81, 32, 50, 26, 26, 81, 83, 45, 14, 14, 94, 26, 81, 14, 50, 40, 81],
-            [97, 93, 93, 57, 57, 93, 57, 58, 66, 93, 87, 56, 57, 77, 94, 85, 86, 73, 65, 64, 70],
-            [35, 59, 29, 52, 60, 12, 5, 30, 9, 68, 54, 31, 42, 21, 94, 28, 71, 34, 15, 8, 80],
-            [97, 59, 78, 99, 78, 84, 72, 58, 78, 90, 78, 56, 78, 77, 76, 85, 82, 73, 65, 64, 70],
-            [97, 62, 51, 63, 60, 84, 72, 58, 66, 68, 51, 56, 62, 77, 51, 51, 69, 62, 62, 64, 62]
-        ];
-    
-    </script>
-
-    <!-- 叛徒對照表 -->
-    <script>
-        var traitorArray = ['作祟揭露者', '作祟揭露者', '最低知識（除了作祟揭露者以外）', '最高力量（除了作祟揭露者以外）', '作祟揭露者', '最低神志', '萊茵哈特神父（園藝專家）或最高神志', '作祟揭露者', '無（一開始沒有）', '作祟揭露者', '作祟揭露者', '無', '最低神志（除了作祟揭露者以外）', '作祟揭露者', '最低速度（除了作祟揭露者以外）', '作祟揭露者左邊的玩家', '作祟揭露者左邊的玩家', '作祟揭露者', '作祟揭露者左邊的玩家', '微微安 羅培茲（老電影）或作祟揭露者左邊的玩家', '最年老的探險者（除了作祟揭露者以外）', '作祟揭露者左邊的玩家', '作祟揭露者左邊的玩家', '布蘭登 賈斯柏（露營）或最低速度', '佐伊 恩斯特容（玩偶）或最高知識', '作祟揭露者左邊的玩家', '最高知識（除了作祟揭露者以外）', '最高知識（除了作祟揭露者以外）', '作祟揭露者', '作祟揭露者', '沒有叛徒（請參照生存指南）', '最高神志', '作祟揭露者', '隱藏叛徒（請參照生存指南）', '最高知識', '達柏爾德小姐（游泳）或最高速度', '最低力量', '最低知識（除了作祟揭露者以外）', '最高速度（除了作祟揭露者以外）', '作祟揭露者左邊的玩家', '作祟揭露者', '最高力量', '隱藏叛徒（請參照生存指南）', '最年輕的探險者（除了作祟揭露者以外）', '最高知識（除了作祟揭露者以外）', '扎斯托 夫人（烹飪）或最低速度', '作祟揭露者', '作祟揭露者左邊的玩家', '海瑟 格蘭維爾或最高知識', '沒有叛徒（請參照生存指南）', '除了作祟揭露者之外的每位玩家', '作祟揭露者', '作祟揭露者', '知識最高者＊', '最靠近作祟揭露者右邊的女性探險者（若無=>作祟揭露者）', '持有物品卡和預兆卡總數最多的探險者', '無（見生存指南）', '作祟揭露者', '作祟揭露者', '作祟揭露者', '作祟揭露者', '達林 威廉斯 閃電俠（莎士比亞文學）或知識最高者＊', '作祟揭露者', '除了知識最高者＊之外的每位玩家', '作祟揭露者', '最老的男性探險者（最老探險者）', '彼得 秋元（籃球）或速度最高者＊', '珍妮 勒克萊爾（閱讀）或知識最高者＊', '作祟揭露者', '最老的探險者', '作祟揭露者左邊的玩家', '作祟揭露者', '奧克斯 貝洛斯（發光的東西）或力量最高者＊', '作祟揭露者', '作祟揭露者左邊的玩家', '最老探險者', '朗費羅教授（愛爾蘭音樂）或速度最高者＊', '神智最低者＊（除了作祟揭露者）', '作祟揭露者左邊和右邊的玩家', '知識最高者＊', '作祟揭露者', '作祟揭露者', '無（見生存指南）', '作祟揭露者左邊的玩家', '作祟揭露者左邊的玩家', '作祟揭露者', '最年輕的探險者', '作祟揭露者', '神智最低者＊', '作祟揭露者', '神智最低者＊', '無（見生存指南）', '知識最高者＊', '持有可被偷竊或交易的物品卡總數最多的探險者', '年齡最高的玩家（該玩家不需要是最老探險者）', '作祟揭露者左邊的玩家', '隱藏叛徒（見生存指南）', '作祟揭露者', '無（見生存指南）', '無（見生存指南）', '所有探險者已玩過57,75,86,93劇本 ? 觸發，無叛徒 : 忽略此次作祟'];
-        var equalJudge = '＊平手 => (有作祟揭露者 ? 作祟揭露者 : 靠近作祟揭露者左邊的人)';
-    </script>
-
+</head>
+<body>
     <script>
         var survivalHauntUrlArray = ['ncg6pPr', 'i5jRnJk', 'er3ZPRm', 'rW5uHiC', 'SgBsSxZ', 'lbkm4d1', 'AxH1woZ', 'f1ngDrp', 'KTMbpaQ', 'FMA8Jjl', 'RuyvjDQ', 'YQRGUN6', '7aNH0pD', 'wHHfwCF', 'HdJwc35', 'Y4iOdUm', 'e2lVhh1', 'V9h9Cih', 'RYugTYL', 'e2lVhh1', 'QtCun8w', '5BKPlii', 'YgezT6r', 'eRAAaVB', 'zqL5HPz', 'EJy7lLT', 'EPPFf1a', 'e2lVhh1', 'a2HL0C1', 'bkKTtf3', 'YVM9LtZ', 'EjSSkSe', 'Lwn4ywh', '3RKZY3H', 'daU9URd', 'ZRkpn0Y', '3x6vI0I', 'zhsqM6Z', 'C11hdTq', 'zXYXH5q', 'ezPOc5W', '0SzxSuS', 'JmTJJeJ', 'ZpMLEa1', 'G2HZBUv', 'ORisOYf', 'iOrHLob', 'La3t4QN', 'QSv0N7R', 'liXo275', 'MSdAAtq', 'g21DHt3', 'R6loHpk', 'ozIKYu5', 'o3Cdwxt', 'zJ0ENrR', 'geE9f4l', 'jbhlrMK', 'IIEKmh4', 'CdozkyY', 'P7mEnvR', 'JxFOljV', 'it77pwC', 'KXBDDDf', '5hlcMhl', 'mRenNd8', 'Kae1bWj', 'kRNjdfW', 'vd6teyC', 'WJfI0wP', 'LfF2diX', 'KP8JpOh', 'rjH7LyJ', 'f2f1tD8', 'EkGj6br', 'u0Ye2h5', '6ELSc9u', 'tdDVhhY', 'oniHIku', 'JgjQslD', 'ND0FvZB', 'd26YGJS', 'wuokgQJ', 'iwWKi4d', 'cpP6bRC', 'zOPlR1o', 'IxW7KIk', 'a0HnRSh', 'uq8XqKu', 'xHhk28Z', 'm4TpxHt', 'O8nrfGK', 'DdeXWkY', '0tifMg8', '9u5A3y5', 'D1VHE5a', 'Ie1kER3', 'QzU0plo', 'nHRyjeT', 'yG3wbTL', 'B0EJdGw'];
         var traitorHauntUrlArray = ['aWGenQU', 'AJUJefs', 'EwbvQe0', 'j7M7v2u', 'Klo9eye', 'hInXtwE', '4nzy6EM', 'VKa4plx', '8xbVO3V', 'a4WBRwE', '8xbVO3V', '8xbVO3V', 'A9bfOQw', 'DGoWZwB', '328tTTv', 't3Pd3sm', 'XNfbP8F', 'QYZoZlC', 'nrjiABZ', 'WjxiKY5', 'Dg8tV9x', 'zMUXVGD', 'nqhmfWf', '4KnPu9x', 'fuEomjI', 'RjMiKW8', 'bAQHuwS', 'ZjTZ7sa', 'zxhQdFg', 'mBd7er6', '55Yx07Z', 'BLdXbfI', 'zPZoCSn', 'ujcpA11', 'cPK8jho', 'AIRvvDN', 'hAvoDIH', '12hwbYB', 'Qq36hfz', 'eYt2P8N', '3TWRhXV', 'fNQxbW7', 'yhLGUg4', 'zARwQwU', 'y3JRWgd', 'E1NHNh5', '9iF4rXn', '1enNJLy', '3ARl1OW', 'DkBOMjV', 'VSBri7c', 'SixyXbR', 'bLzOjqn', 'RQWeXDm', 'kgPseGF', 'nFI4i3F', 'DF8pM8p', 'pAL2nwE', 'puYTR7d', 'n1Mxiyk', 'EyXn1vw', 'Ybkx4pw', 'e3MChCy', 'HDy4Fhe', 'rox6FVL', 'GPe4HLy', '3hg5y0u', 'UhmPOJ1', 'IReLvbp', 'kXL0JBO', 'ZoyewBi', 'c9x5tR9', 'E5TFy1l', '24Ennaq', 'Ci494nK', 'zn50HuZ', 'IO0fYSx', 'WkHuYiD', 'rNMBJZJ', 'VLr2ASj', 'wWAa08h', 'DTmTv2h', 'CHjybei', '2mTnGzs', 'SlHE0NR', 'QjXKapt', 'K49uuD1', 'FTn1qkW', 'OpwLFYI', 'wCo6pv2', 'pv8Unfh', 'NhiOOoq', 'jc93YLJ', 'ZOqiTqe', 'CtXNiHx', '602JqXQ', 'bKuj5PO', 'Pe3dPv4', 'Jvjzpho', 'rhVFci4', '93MuBDZ'];
-        var baseTableUrl = 'Yy2Agoa'; //驗算用的base作祟表
-        var widowTableUrl = '6n3Zk7x'; //驗算用的widow作祟表
-        var balenceUrl = 'ZwoM6hQ'; //base平衡調整
-        var metaUrlArray = [baseTableUrl, widowTableUrl, balenceUrl];
 
         function imgUrl(hauntNum, isTraitor) {
             var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
@@ -94,520 +42,69 @@
             var url = 'http://imgur.com/' + metaUrlArray[typeNum - 1];
             return url;
         }
+
     </script>
 
-    <script>
-        var cardData = {
-            "roomArray": [
-    {
-        "name": "被棄置的房間",
-        "ver": "base",
-        "eng": "Abandoned Room",
-        "baseRowNum": 1,
-        "widowRowNum": 1
-    },
-    {
-        "name": "陽台",
-        "ver": "base",
-        "eng": "Balcony",
-        "baseRowNum": 2,
-        "widowRowNum": 2
-    },
-    {
-        "name": "地下墓室",
-        "ver": "base",
-        "eng": "Catacombs",
-        "baseRowNum": 3,
-        "widowRowNum": 3
-    },
-    {
-        "name": "燒焦的房間",
-        "ver": "base",
-        "eng": "Charred Room",
-        "baseRowNum": 4,
-        "widowRowNum": 4
-    },
-    {
-        "name": "餐廳",
-        "ver": "base",
-        "eng": "Dining Room",
-        "baseRowNum": 5,
-        "widowRowNum": 5
-    },
-    {
-        "name": "地牢",
-        "ver": "widow",
-        "eng": "Dungeon",
-        "baseRowNum": 0,
-        "widowRowNum": 6
-    },
-    {
-        "name": "暖氣爐房間",
-        "ver": "base",
-        "eng": "Furnace Room",
-        "baseRowNum": 6,
-        "widowRowNum": 7
-    },
-    {
-        "name": "看台",
-        "ver": "base",
-        "eng": "Gallery",
-        "baseRowNum": 7,
-        "widowRowNum": 8
-    },
-    {
-        "name": "健身房",
-        "ver": "base",
-        "eng": "Gymnasium",
-        "baseRowNum": 8,
-        "widowRowNum": 9
-    },
-    {
-        "name": "廢棄物房間",
-        "ver": "base",
-        "eng": "Junk Room",
-        "baseRowNum": 9,
-        "widowRowNum": 10
-    },
-    {
-        "name": "廚房",
-        "ver": "base",
-        "eng": "Kitchen",
-        "baseRowNum": 10,
-        "widowRowNum": 11
-    },
-    {
-        "name": "主臥房",
-        "ver": "base",
-        "eng": "Master Bedroom",
-        "baseRowNum": 11,
-        "widowRowNum": 12
-    },
-    {
-        "name": "育兒室",
-        "ver": "widow",
-        "eng": "Nursery",
-        "baseRowNum": 0,
-        "widowRowNum": 13
-    },
-    {
-        "name": "五芒星房間",
-        "ver": "base",
-        "eng": "Pentagram Chamber",
-        "baseRowNum": 12,
-        "widowRowNum": 14
-    },
-    {
-        "name": "鳥園",
-        "ver": "widow",
-        "eng": "Rookery",
-        "baseRowNum": 0,
-        "widowRowNum": 15
-    },
-    {
-        "name": "僕役房",
-        "ver": "base",
-        "eng": "Servants Quarters",
-        "baseRowNum": 13,
-        "widowRowNum": 16
-    },
-    {
-        "name": "書房",
-        "ver": "widow",
-        "eng": "Study",
-        "baseRowNum": 0,
-        "widowRowNum": 17
-    },
-    {
-        "name": "劇院",
-        "ver": "widow",
-        "eng": "Theater",
-        "baseRowNum": 0,
-        "widowRowNum": 18
-    }
-  ],
-            "omenArray": [
-    {
-        "name": "噬咬",
-        "ver": "base",
-        "eng": "Bite",
-        "baseRowNum": 1,
-        "widowRowNum": 1
-    },
-    {
-        "name": "血石",
-        "ver": "widow",
-        "eng": "Bloodstone",
-        "baseRowNum": 0,
-        "widowRowNum": 2
-    },
-    {
-        "name": "書",
-        "ver": "base",
-        "eng": "Book",
-        "baseRowNum": 2,
-        "widowRowNum": 3
-    },
-    {
-        "name": "盒子",
-        "ver": "widow",
-        "eng": "Box",
-        "baseRowNum": 0,
-        "widowRowNum": 4
-    },
-    {
-        "name": "貓",
-        "ver": "widow",
-        "eng": "Cat",
-        "baseRowNum": 0,
-        "widowRowNum": 5
-    },
-    {
-        "name": "水晶球",
-        "ver": "base",
-        "eng": "Crystal Ball",
-        "baseRowNum": 3,
-        "widowRowNum": 6
-    },
-    {
-        "name": "狗",
-        "ver": "base",
-        "eng": "Dog",
-        "baseRowNum": 4,
-        "widowRowNum": 7
-    },
-    {
-        "name": "女孩",
-        "ver": "base",
-        "eng": "Girl",
-        "baseRowNum": 5,
-        "widowRowNum": 8
-    },
-    {
-        "name": "聖符",
-        "ver": "base",
-        "eng": "Holy Symbol",
-        "baseRowNum": 6,
-        "widowRowNum": 9
-    },
-    {
-        "name": "鑰匙",
-        "ver": "widow",
-        "eng": "Key",
-        "baseRowNum": 0,
-        "widowRowNum": 10
-    },
-    {
-        "name": "信件",
-        "ver": "widow",
-        "eng": "Letter",
-        "baseRowNum": 0,
-        "widowRowNum": 11
-    },
-    {
-        "name": "瘋漢",
-        "ver": "base",
-        "eng": "Madman",
-        "baseRowNum": 7,
-        "widowRowNum": 12
-    },
-    {
-        "name": "面具",
-        "ver": "base",
-        "eng": "Mask",
-        "baseRowNum": 8,
-        "widowRowNum": 13
-    },
-    {
-        "name": "徽章",
-        "ver": "base",
-        "eng": "Medallion",
-        "baseRowNum": 9,
-        "widowRowNum": 14
-    },
-    {
-        "name": "相片",
-        "ver": "widow",
-        "eng": "Photograph",
-        "baseRowNum": 0,
-        "widowRowNum": 15
-    },
-    {
-        "name": "戒指",
-        "ver": "base",
-        "eng": "Ring",
-        "baseRowNum": 10,
-        "widowRowNum": 16
-    },
-    {
-        "name": "繩索",
-        "ver": "widow",
-        "eng": "Rope",
-        "baseRowNum": 0,
-        "widowRowNum": 17
-    },
-    {
-        "name": "顱骨",
-        "ver": "base",
-        "eng": "Skull",
-        "baseRowNum": 11,
-        "widowRowNum": 18
-    },
-    {
-        "name": "長矛",
-        "ver": "base",
-        "eng": "Spear",
-        "baseRowNum": 12,
-        "widowRowNum": 19
-    },
-    {
-        "name": "靈魂板",
-        "ver": "base",
-        "eng": "Spirit Board",
-        "baseRowNum": 13,
-        "widowRowNum": 20
-    },
-    {
-        "name": "藥瓶",
-        "ver": "widow",
-        "eng": "Vial",
-        "baseRowNum": 0,
-        "widowRowNum": 21
-    }
-  ]
-        };
-    
-    
-    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
 
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"></script>
     <script>
         $(function () {
             console.log("ready!");
 
-            reloadHsltRoom();
-            reloadHsltOmen();
-
-            $(document).delegate('input[name=verSelect]', "change", function () {
-                reloadHsltRoom();
-                reloadHsltOmen();
-            });
+            //初始劇本選單
+            for (var hauntIdx = 0; hauntIdx < survivalHauntUrlArray.length; hauntIdx++) {
+                //var selectText = cardData.roomArray[i].name + '_' + cardData.roomArray[i].eng;
+                //var selectValue = cardData.roomArray[i].baseRowNum; //從1開始
+                $("#ddlHauntNum").append('<option value=' + hauntIdx + '>' + (hauntIdx+1) + '</option>');
+            }
 
             $(document).delegate('#btnHaunt', "click", function () {
-                //findHaunt();
-                setUrlPara();
+                var hauntNum = $('#ddlHauntNum').val()-0+1;
+
+                var simgurl = imgUrl(hauntNum, false);
+                var timgurl = imgUrl(hauntNum, true);
+                $('#imgSurvival').attr('src', simgurl);
+                $('#imgTraitor').attr('src', timgurl);
+
+                var saurl = aUrl(hauntNum, false);
+                var taurl = aUrl(hauntNum, true);
+                $('#aSurvival').attr('href', saurl);
+                $('#aTraitor').attr('href', taurl);
+
             });
-
-            //載入額外說明表
-            $('#aBaseTable').attr('href', aUrl_meta(1));
-            $('#aWidowTable').attr('href', aUrl_meta(2));
-            $('#aBaseBalence').attr('href', aUrl_meta(3));
-
-
-            //以下是有參數的狀況才會觸發
-            var v = getUrlParameter('v'); //version
-            var r = getUrlParameter('r'); //room
-            var o = getUrlParameter('o'); //omen
-
-            if ((v != undefined)
-                && (r != undefined)
-                && (o != undefined)) {
-                if (v == 'base')
-                    $('#radBase').prop('checked', true);
-                else if (v == 'widow')
-                    $('#radWidowExt').prop('checked', true);
-
-                reloadHsltRoom();
-                reloadHsltOmen();
-
-                $('#hsltRoom').val(r);
-                $('#hsltOmen').val(o);
-
-                findHaunt();
-            }
         });
-    
-    
     </script>
 
     <script>
-        var getUrlParameter = function getUrlParameter(sParam) {
-            var sPageURL = decodeURIComponent(window.location.search.substring(1));
-            var sURLVariables = sPageURL.split('&');
-            var sParameterName;
-            var i;
+        function ddd() {
+        }
 
-            for (i = 0; i < sURLVariables.length; i++) {
-                sParameterName = sURLVariables[i].split('=');
 
-                if (sParameterName[0] === sParam) {
-                    return sParameterName[1] === undefined ? true : sParameterName[1];
-                }
-            }
-        };
-    
     </script>
 
-    <script>
-        //根據選取版本，載入對應房間
-        function reloadHsltRoom() {
-            var checkdVer = $('input[name=verSelect]:checked').val();
 
-            $('#hsltRoom option').remove();
-            $("#hsltRoom").append('<option value=0>選取房間</option>'); //0是未選取
-            var roomArrayLen = cardData.roomArray.length;
+    <div>
+        <div style='display:inline-block;'>作祟劇本</div>
+        <select id="ddlHauntNum" name="ddlHauntNum"></select>
 
-            if (checkdVer === 'base') {
-                for (var i = 0; i < roomArrayLen; i++) {
-                    if ((cardData.roomArray[i].ver === 'base')) {
-                        var selectText = cardData.roomArray[i].name + '_' + cardData.roomArray[i].eng;
-                        var selectValue = cardData.roomArray[i].baseRowNum; //從1開始
-                        $("#hsltRoom").append('<option value=' + selectValue + '>' + selectText + '</option>');
-                    }
-                }
-            } else if (checkdVer === 'widow') {
-                for (var i = 0; i < roomArrayLen; i++) {
-                    if ((cardData.roomArray[i].ver === 'base')
-                        || (cardData.roomArray[i].ver === 'widow')) {
-                        var selectText = cardData.roomArray[i].name + '_' + cardData.roomArray[i].eng;
-                        var selectValue = cardData.roomArray[i].widowRowNum;//從1開始
-                        $("#hsltRoom").append('<option value=' + selectValue + '>' + selectText + '</option>');
-                    }
-                }
-            }
-        }
-
-        //根據選取版本，載入對應物品
-        function reloadHsltOmen() {
-            var checkdVer = $('input[name=verSelect]:checked').val();
-
-            $('#hsltOmen option').remove();
-            $("#hsltOmen").append('<option value=0>選取預兆</option>'); //0是未選取
-            var omenArrayLen = cardData.omenArray.length;
-
-            if (checkdVer === 'base') {
-                for (var i = 0; i < omenArrayLen; i++) {
-                    if ((cardData.omenArray[i].ver === 'base')) {
-                        var selectText = cardData.omenArray[i].name + '_' + cardData.omenArray[i].eng;
-                        var selectValue = cardData.omenArray[i].baseRowNum; //從1開始
-                        $("#hsltOmen").append('<option value=' + selectValue + '>' + selectText + '</option>');
-                    }
-                }
-            } else if (checkdVer === 'widow') {
-                for (var i = 0; i < omenArrayLen; i++) {
-                    if ((cardData.omenArray[i].ver === 'base')
-                        || (cardData.omenArray[i].ver === 'widow')) {
-                        var selectText = cardData.omenArray[i].name + '_' + cardData.omenArray[i].eng;
-                        var selectValue = cardData.omenArray[i].widowRowNum; //從1開始
-                        $("#hsltOmen").append('<option value=' + selectValue + '>' + selectText + '</option>');
-                    }
-                }
-            }
-        }
-    </script>
-
-    <script>
-        //放參數進網址，重新執行(點完QRCode還能回來)
-        function setUrlPara() {
-            var checkdVer = $('input[name=verSelect]:checked').val();
-            var roomRowNum = $('#hsltRoom').val();
-            var omenRowNum = $('#hsltOmen').val();
-
-            var pathname = window.location.pathname; // Returns path only
-            var url = window.location.href;     // Returns full URL
-
-            window.location = pathname + '?v=' + checkdVer + '&r=' + roomRowNum + '&o=' + omenRowNum;
-        }
-
-        //尋找作祟劇本
-        function findHaunt() {
-            var roomRowNum = $('#hsltRoom').val();
-            var omenRowNum = $('#hsltOmen').val();
-
-            if (roomRowNum - 0 == 0) {
-                $('#hauntNum').text('【房間】未選');
-                return;
-            }
-            if (omenRowNum - 0 == 0) {
-                $('#hauntNum').text('【預兆】未選');
-                return;
-            }
-
-            var checkdVer = $('input[name=verSelect]:checked').val();
-            var tableArray = (checkdVer === 'base') ? baseTable : widowTable;
-
-            var hauntNum = tableArray[roomRowNum - 1][omenRowNum - 1];
-            $('#hauntNum').text(hauntNum);
-
-            var simgurl = imgUrl(hauntNum, false);
-            var timgurl = imgUrl(hauntNum, true);
-            $('#imgSurvival').attr('src', simgurl);
-            $('#imgTraitor').attr('src', timgurl);
-            //
-            var saurl = aUrl(hauntNum, false);
-            var taurl = aUrl(hauntNum, true);
-            $('#aSurvival').attr('href', saurl);
-            $('#aTraitor').attr('href', taurl);
-
-            //顯示叛徒者
-            $('#spTraitor').text(traitorArray[hauntNum - 1]);
-            $('#spNote').text(equalJudge);
-        }
-    </script>
-
-</head>
-<body>
-    <div>山中小屋的背叛者 - 作祟對照表
-    </div>
-    <div style='background-color: #a2f193; padding: 20px;'>
-        <input id="radBase"  name="verSelect" type="radio" value="base" />
-        <label for="radBase">基本版</label>
-        <input id="radWidowExt" checked="checked" name="verSelect" type="radio" value="widow" />
-        <label for="radWidowExt">望夫台擴充</label>
-    </div>
-    <div style='background-color: #fff68d; padding: 20px;'>
-        <div style='display:inline-block;'>房間</div>
-        <div style='display:inline-block;'>
-            <div style='display:none;'>
-                <input id="radB1" checked="checked" name="floorSelect" type="radio" value="b1" />
-                    <label for="radB1">地下室</label>
-                <input id="radF1" name="floorSelect" type="radio" value="f1" />
-                    <label for="radF1">一樓</label>
-                <input id="radF2" name="floorSelect" type="radio" value="f2" />
-                    <label for="radF2">二樓</label>
-                <input id="radF3" name="floorSelect" type="radio" value="f3" />
-                    <label for="radF3">屋頂</label>
-            </div>
-            <select id="hsltRoom" name="hsltRoom" >
-            </select>
+        <div style='background-color: #9e805a; padding: 20px; text-align: center; '>
+            <input id="btnHaunt" type="button" value="作祟"
+                   style='font-size: larger; padding: 10px 20px 10px 20px;' />
         </div>
+
+        <div style='text-align: center; padding: 200px 0 200px 0;'>
+            <span>英雄劇本</span><br />
+            <a id='aSurvival'><img id='imgSurvival' width='75%' /></a>
+        </div>
+        <div style='text-align: center; padding: 400px 0 400px 0;'>
+            <span>叛徒劇本</span><br />
+            <a id='aTraitor'><img id='imgTraitor' width='75%' /></a>
+        </div>
+
+
     </div>
-    <div style='background-color: #e89732; padding: 20px;'>
-        <div style='display:inline-block;'>預兆</div>
-            <select id="hsltOmen" name="hsltOmen" >
-            </select>
-    </div>
-    <div style='background-color: #9e805a; padding: 20px; text-align: center; '>
-        <input id="btnHaunt" type="button" value="作祟" 
-            style='font-size: larger; padding: 10px 20px 10px 20px;'/>
-    </div>
-    <div style='text-align: center;'>
-        <span id='hauntNum'></span><br />
-        <span id='spTraitor'></span><br /><br />
-        <span id='spNote'></span>
-    </div>
-    <div style='text-align: center; padding: 200px 0 200px 0;'>
-        <span>英雄劇本</span><br />
-        <a id='aSurvival'><img id='imgSurvival' width='75%' /></a>
-    </div>
-    <div style='text-align: center; padding: 400px 0 400px 0;'>
-        <span>叛徒劇本</span><br />
-        <a id='aTraitor'><img id='imgTraitor' width='75%' /></a>
-    </div>
-    <div style='text-align: center; padding: 400px 0 400px 0;'>
-        <a id='aBaseTable'><span>基本作祟表</span></a><br /><br />
-        <a id='aWidowTable'><span>擴充作祟表</span></a><br /><br />
-        <a id='aBaseBalence'><span>1-50平衡表</span></a><br /><br />
-    </div>
-</body>
-</html>
+
+</body >
+</html >
