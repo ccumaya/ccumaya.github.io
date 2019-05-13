@@ -72,21 +72,70 @@
     </script>
 
     <script>
-        var survivalHauntUrlArray = ['ncg6pPr', 'i5jRnJk', 'er3ZPRm', 'rW5uHiC', 'SgBsSxZ', 'lbkm4d1', 'AxH1woZ', 'f1ngDrp', 'KTMbpaQ', 'FMA8Jjl', 'RuyvjDQ', 'YQRGUN6', '7aNH0pD', 'wHHfwCF', 'HdJwc35', 'Y4iOdUm', 'e2lVhh1', 'V9h9Cih', 'RYugTYL', 'e2lVhh1', 'QtCun8w', '5BKPlii', 'YgezT6r', 'eRAAaVB', 'zqL5HPz', 'EJy7lLT', 'EPPFf1a', 'e2lVhh1', 'a2HL0C1', 'bkKTtf3', 'YVM9LtZ', 'EjSSkSe', 'Lwn4ywh', '3RKZY3H', 'daU9URd', 'ZRkpn0Y', '3x6vI0I', 'zhsqM6Z', 'C11hdTq', 'zXYXH5q', 'ezPOc5W', '0SzxSuS', 'JmTJJeJ', 'ZpMLEa1', 'G2HZBUv', 'ORisOYf', 'iOrHLob', 'La3t4QN', 'QSv0N7R', 'liXo275', 'MSdAAtq', 'g21DHt3', 'R6loHpk', 'ozIKYu5', 'o3Cdwxt', 'zJ0ENrR', 'geE9f4l', 'jbhlrMK', 'IIEKmh4', 'CdozkyY', 'P7mEnvR', 'JxFOljV', 'it77pwC', 'KXBDDDf', '5hlcMhl', 'mRenNd8', 'Kae1bWj', 'kRNjdfW', 'vd6teyC', 'WJfI0wP', 'LfF2diX', 'KP8JpOh', 'rjH7LyJ', 'f2f1tD8', 'EkGj6br', 'u0Ye2h5', '6ELSc9u', 'tdDVhhY', 'oniHIku', 'JgjQslD', 'ND0FvZB', 'd26YGJS', 'wuokgQJ', 'iwWKi4d', 'cpP6bRC', 'zOPlR1o', 'IxW7KIk', 'a0HnRSh', 'uq8XqKu', 'xHhk28Z', 'm4TpxHt', 'O8nrfGK', 'DdeXWkY', '0tifMg8', '9u5A3y5', 'D1VHE5a', 'Ie1kER3', 'QzU0plo', 'nHRyjeT', 'yG3wbTL', 'B0EJdGw'];
-        var traitorHauntUrlArray = ['aWGenQU', 'AJUJefs', 'EwbvQe0', 'j7M7v2u', 'Klo9eye', 'hInXtwE', '4nzy6EM', 'VKa4plx', '8xbVO3V', 'a4WBRwE', '8xbVO3V', '8xbVO3V', 'A9bfOQw', 'DGoWZwB', '328tTTv', 't3Pd3sm', 'XNfbP8F', 'QYZoZlC', 'nrjiABZ', 'WjxiKY5', 'Dg8tV9x', 'zMUXVGD', 'nqhmfWf', '4KnPu9x', 'fuEomjI', 'RjMiKW8', 'bAQHuwS', 'ZjTZ7sa', 'zxhQdFg', 'mBd7er6', '55Yx07Z', 'BLdXbfI', 'zPZoCSn', 'ujcpA11', 'cPK8jho', 'AIRvvDN', 'hAvoDIH', '12hwbYB', 'Qq36hfz', 'eYt2P8N', '3TWRhXV', 'fNQxbW7', 'yhLGUg4', 'zARwQwU', 'y3JRWgd', 'E1NHNh5', '9iF4rXn', '1enNJLy', '3ARl1OW', 'DkBOMjV', 'VSBri7c', 'SixyXbR', 'bLzOjqn', 'RQWeXDm', 'kgPseGF', 'nFI4i3F', 'DF8pM8p', 'pAL2nwE', 'puYTR7d', 'n1Mxiyk', 'EyXn1vw', 'Ybkx4pw', 'e3MChCy', 'HDy4Fhe', 'rox6FVL', 'GPe4HLy', '3hg5y0u', 'UhmPOJ1', 'IReLvbp', 'kXL0JBO', 'ZoyewBi', 'c9x5tR9', 'E5TFy1l', '24Ennaq', 'Ci494nK', 'zn50HuZ', 'IO0fYSx', 'WkHuYiD', 'rNMBJZJ', 'VLr2ASj', 'wWAa08h', 'DTmTv2h', 'CHjybei', '2mTnGzs', 'SlHE0NR', 'QjXKapt', 'K49uuD1', 'FTn1qkW', 'OpwLFYI', 'wCo6pv2', 'pv8Unfh', 'NhiOOoq', 'jc93YLJ', 'ZOqiTqe', 'CtXNiHx', '602JqXQ', 'bKuj5PO', 'Pe3dPv4', 'Jvjzpho', 'rhVFci4', '93MuBDZ'];
+        var survivalHauntUrlArray = [
+            'ncg6pPr_1', 'i5jRnJk_2', 'er3ZPRm_3', 'rW5uHiC_4', 'SgBsSxZ_5', 
+            'lbkm4d1_6', 'AxH1woZ_7', 'f1ngDrp_8', 'KTMbpaQ_9', 'FMA8Jjl_10', 
+            'RuyvjDQ_11', 'YQRGUN6_12', '7aNH0pD_13', 'wHHfwCF_14', 'HdJwc35_15', 
+            'Y4iOdUm_16', 'e2lVhh1_17', 'V9h9Cih_18', 'RYugTYL_19', 'e2lVhh1_20', 
+            'QtCun8w_21', '5BKPlii_22', 'YgezT6r_23', 'eRAAaVB_24', 'zqL5HPz_25', 
+            'EJy7lLT_26', 'EPPFf1a_27', 'e2lVhh1_28', 'a2HL0C1_29', 'bkKTtf3_30', 
+            'YVM9LtZ_31', 'EjSSkSe_32', 'Lwn4ywh_33', '3RKZY3H_34', 'daU9URd_35', 
+            'ZRkpn0Y_36', '3x6vI0I_37', 'zhsqM6Z_38', 'C11hdTq_39', 'zXYXH5q_40', 
+            'ezPOc5W_41', '0SzxSuS_42', 'JmTJJeJ_43', 'ZpMLEa1_44', 'G2HZBUv_45', 
+            'ORisOYf_46', 'iOrHLob_47', 'La3t4QN_48', 'QSv0N7R_49', 'liXo275_50', 
+            'MSdAAtq_51', 'g21DHt3_52', 'R6loHpk_53', 'ozIKYu5_54', 'o3Cdwxt_55', 
+            'zJ0ENrR_56', 'geE9f4l_57', 'jbhlrMK_58', 'IIEKmh4_59', 'CdozkyY_60', 
+            'P7mEnvR_61', 'JxFOljV_62', 'it77pwC_63', 'KXBDDDf_64', '5hlcMhl_65', 
+            'mRenNd8_66', 'Kae1bWj_67', 'kRNjdfW_68', 'vd6teyC_69', 'WJfI0wP_70', 
+            'LfF2diX_71', 'KP8JpOh_72', 'rjH7LyJ_73', 'f2f1tD8_74', 'EkGj6br_75', 
+            'u0Ye2h5_76', '6ELSc9u_77', 'tdDVhhY_78', 'oniHIku_79', 'JgjQslD_80', 
+            'ND0FvZB_81', 'd26YGJS_82', 'wuokgQJ_83', 'iwWKi4d_84', 'cpP6bRC_85', 
+            'zOPlR1o_86', 'IxW7KIk_87', 'a0HnRSh_88', 'uq8XqKu_89', 'xHhk28Z_90', 
+            'm4TpxHt_91', 'O8nrfGK_92', 'DdeXWkY_93', '0tifMg8_94', '9u5A3y5_95', 
+            'D1VHE5a_96', 'Ie1kER3_97', 'QzU0plo_98', 'nHRyjeT_99', 'yG3wbTL_100', 
+            'B0EJdGw_101'];
+        var traitorHauntUrlArray = [
+            'aWGenQU_1', 'AJUJefs_2', 'EwbvQe0_3', 'j7M7v2u_4', 'Klo9eye_5', 
+            'hInXtwE_6', '4nzy6EM_7', 'VKa4plx_8', '8xbVO3V_9', 'a4WBRwE_10', 
+            '8xbVO3V_11', '8xbVO3V_12', 'A9bfOQw_13', 'DGoWZwB_14', '328tTTv_15', 
+            't3Pd3sm_16', 'XNfbP8F_17', 'QYZoZlC_18', 'nrjiABZ_19', 'WjxiKY5_20', 
+            'Dg8tV9x_21', 'zMUXVGD_22', 'nqhmfWf_23', '4KnPu9x_24', 'fuEomjI_25', 
+            'RjMiKW8_26', 'bAQHuwS_27', 'ZjTZ7sa_28', 'zxhQdFg_29', 'mBd7er6_30', 
+            '55Yx07Z_31', 'BLdXbfI_32', 'zPZoCSn_33', 'ujcpA11_34', 'cPK8jho_35', 
+            'AIRvvDN_36', 'hAvoDIH_37', '12hwbYB_38', 'Qq36hfz_39', 'eYt2P8N_40', 
+            '3TWRhXV_41', 'fNQxbW7_42', 'yhLGUg4_43', 'zARwQwU_44', 'y3JRWgd_45', 
+            'E1NHNh5_46', '9iF4rXn_47', '1enNJLy_48', '3ARl1OW_49', 'DkBOMjV_50', 
+            'VSBri7c_51', 'SixyXbR_52', 'bLzOjqn_53', 'RQWeXDm_54', 'kgPseGF_55', 
+            'nFI4i3F_56', 'DF8pM8p_57', 'pAL2nwE_58', 'puYTR7d_59', 'n1Mxiyk_60', 
+            'EyXn1vw_61', 'Ybkx4pw_62', 'e3MChCy_63', 'HDy4Fhe_64', 'rox6FVL_65', 
+            'GPe4HLy_66', '3hg5y0u_67', 'UhmPOJ1_68', 'IReLvbp_69', 'kXL0JBO_70', 
+            'ZoyewBi_71', 'c9x5tR9_72', 'E5TFy1l_73', '24Ennaq_74', 'Ci494nK_75', 
+            'zn50HuZ_76', 'IO0fYSx_77', 'WkHuYiD_78', 'rNMBJZJ_79', 'VLr2ASj_80', 
+            'wWAa08h_81', 'DTmTv2h_82', 'CHjybei_83', '2mTnGzs_84', 'SlHE0NR_85', 
+            'QjXKapt_86', 'K49uuD1_87', 'FTn1qkW_88', 'OpwLFYI_89', 'wCo6pv2_90', 
+            'pv8Unfh_91', 'NhiOOoq_92', 'jc93YLJ_93', 'ZOqiTqe_94', 'CtXNiHx_95', 
+            '602JqXQ_96', 'bKuj5PO_97', 'Pe3dPv4_98', 'Jvjzpho_99', 'rhVFci4_100', 
+            '93MuBDZ_101'];
         var baseTableUrl = 'Yy2Agoa'; //驗算用的base作祟表
         var widowTableUrl = '6n3Zk7x'; //驗算用的widow作祟表
-        var balenceUrl = 'ZwoM6hQ'; //base平衡調整
+        var balenceUrl = 'ZwoM6hQ_balance(1-50)'; //base平衡調整
         var metaUrlArray = [baseTableUrl, widowTableUrl, balenceUrl];
 
         function imgUrl(hauntNum, isTraitor) {
-            var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
-            var url = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http%3A%2F%2Fimgur.com%2F' + urlArray[hauntNum - 1];
+            //var idxType = (isTraitor) ? 't' : 's';
+            //var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
+            //var url = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http%3A%2F%2Fimgur.com%2F' + urlArray[hauntNum - 1];
+            //var survivalUrl = 'https://ccumaya.github.io/showHauntImg.html?t=t&i=wergfs_14';
+            //var survivalUrl = 'https://ccumaya.github.io/showHauntImg.html?t=t&i='+ urlArray[hauntNum - 1];
+            var url = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ encodeURI(aUrl(hauntNum, isTraitor));
             return url;
         }
         function aUrl(hauntNum, isTraitor) {
+            //var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
+            //var url = 'http://imgur.com/' + urlArray[hauntNum - 1];
+            var idxType = (isTraitor) ? 't' : 's';
             var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
-            var url = 'http://imgur.com/' + urlArray[hauntNum - 1];
+            var url = 'https://ccumaya.github.io/showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
             return url;
         }
         //1.base作祟表/2.widow作祟表/3.平衡調整 URL
@@ -380,10 +429,7 @@
     
     </script>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-    
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.10.2.min.js"></script>
     <script>
         $(function () {
             console.log("ready!");
@@ -564,7 +610,7 @@
     </div>
     <div style='background-color: #a2f193; padding: 20px;'>
         <input id="radBase"  name="verSelect" type="radio" value="base" />
-        <label for="radBase">基本版</label>
+0        <label for="radBase">基本版</label>
         <input id="radWidowExt" checked="checked" name="verSelect" type="radio" value="widow" />
         <label for="radWidowExt">望夫台擴充</label>
     </div>
