@@ -42,7 +42,10 @@
             (t=='s' ? 'survival(1-101)' : 'traitor(1-101)') + '/' +
             i + '.jpg';
 
-        $('#imgHaunt').attr('src', imgUrl);
+        //$('#imgHaunt').attr('src', imgUrl);
+        new Image(imgUrl); // preloads the image
+        var h1 = document.getElementsByTagName('h1')[0];
+        h1.innerHTML = '<img src="'+imgUrl+'" alt="' + h1.innerHTML + '">';
 
     });
     
@@ -50,7 +53,8 @@
     </script>
 
 <div style='text-align: center; '>
-    <img id='imgHaunt' width='100%' />
+    <!-- img id='imgHaunt' width='100%' / -->
+    <h1 style="width: 600px; height: 80px">即將發生了一件恐怖的事...</h1>
 </div>
 <div style='text-align: center; '>
     <a id='aDonate'><img id='imgDonate' width='100%' /></a>
