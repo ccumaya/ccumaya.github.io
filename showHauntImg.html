@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  
+  <script>
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1));
+        var sURLVariables = sPageURL.split('&');
+        var sParameterName;
+        var i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+    </script>
+
+</head>
+<body>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script>
+    $(function () {
+        console.log("ready!");
+
+        //以下是有參數的狀況才會觸發
+        var t = getUrlParameter('t'); //idxType
+        var i = getUrlParameter('i'); //idx
+
+        //var timgurl = imgUrl(hauntNum, true);
+        var imgUrl = 'https://raw.githubusercontent.com/ccumaya/ccumaya.github.io/master/HauntImg/'+
+            (t=='s' ? 'survival(1-101)' : 'traitor(1-101)') + '/' +
+            i + '.jpg';
+
+        $('#imgHaunt').attr('src', imgUrl);
+
+    });
+    
+    
+    </script>
+
+<div style='text-align: center; padding: 200px 0 200px 0;'>
+    <img id='imgHaunt' width='100%' />
+</div>
+<div style='text-align: center; padding: 400px 0 400px 0;'>
+    <a id='aDonate'><img id='imgDonate' width='100%' /></a>
+</div>
+
+</body>
+</html>
