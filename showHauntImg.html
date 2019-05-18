@@ -45,7 +45,7 @@ body{
     min-height: 80px;
 }
 
-.hauntImg
+#imgHaunt
 {
     width: 100%;
 
@@ -61,7 +61,7 @@ body{
 #imgDonate
 {
     width: 100%;
-    background-color: #ffdc9b;
+    background-color: #ffffff;
 
     /* 下半圓角矩形 */
     -webkit-border-bottom-right-radius: 90px;
@@ -94,23 +94,25 @@ body{
             (t=='s' ? 'survival(1-101)' : 'traitor(1-101)') + '/' +
             i + '.jpg';
 
-        //$('#imgHaunt').attr('src', imgUrl);
-        new Image(imgUrl); // preloads the image
-        var h1 = document.getElementsByTagName('h1')[0];
-        h1.innerHTML = '<img src="'+imgUrl+'" alt="' + h1.innerHTML + '" class="hauntImg">';
+        $('#imgHaunt').attr('src', imgUrl);
+
+        //new Image(imgUrl); // preloads the image
+        //var h1 = document.getElementsByTagName('h1')[0];
+        //h1.innerHTML = '<img src="'+imgUrl+'" alt="' + h1.innerHTML + '" class="hauntImg">';
 
         $('#imgDonate').attr('src', 'donateDes.png');
+        $('#aDonate').attr('href', 'https://line.me/S/sticker/1352260');
     });
     
     
     </script>
 
 <div class='mainDiv'>
-    <!-- img id='imgHaunt' width='100%' / -->
-    <h1 class='loadingText'>即將發生了一件恐怖的事...</h1>
+    <img id='imgHaunt' />
+    <!-- h1 class='loadingText'>即將發生了一件恐怖的事...</h1 -->
 </div>
 <div style='text-align: center; '>
-    <a id='aDonate'><img id='imgDonate' width='100%' /></a>
+    <a id='aDonate' target="_blank"><img id='imgDonate' width='100%' /></a>
 </div>
 
 </body>
