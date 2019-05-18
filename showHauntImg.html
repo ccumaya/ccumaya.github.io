@@ -23,13 +23,55 @@
     </script>
 
 <style>
+body{
+    background-color: #72583a;
+}
+
+
 .mainDiv
 {
+    text-align: center; 
+    border: 1px double #7883df;
+
     /* 圓角矩形 */
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;  
+    /* -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    border-radius: 90px;   */
 }
+
+.loadingText
+{
+    min-width: 600px;
+    min-height: 80px;
+}
+
+.hauntImg
+{
+    width: 100%;
+
+    /* 上半圓角矩形 */
+    -webkit-border-top-left-radius: 90px;
+    -webkit-border-top-right-radius: 90px;
+    -moz-border-radius-topleft: 90px;
+    -moz-border-radius-topright: 90px;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+}
+
+#imgDonate
+{
+    width: 100%;
+    background-color: #ffdc9b;
+
+    /* 下半圓角矩形 */
+    -webkit-border-bottom-right-radius: 90px;
+    -webkit-border-bottom-left-radius: 90px;
+    -moz-border-radius-bottomright: 90px;
+    -moz-border-radius-bottomleft: 90px;
+    border-bottom-right-radius: 90px;
+    border-bottom-left-radius: 90px;
+}
+
 </style>
 
 </head>
@@ -55,16 +97,17 @@
         //$('#imgHaunt').attr('src', imgUrl);
         new Image(imgUrl); // preloads the image
         var h1 = document.getElementsByTagName('h1')[0];
-        h1.innerHTML = '<img src="'+imgUrl+'" alt="' + h1.innerHTML + '">';
+        h1.innerHTML = '<img src="'+imgUrl+'" alt="' + h1.innerHTML + '" class="hauntImg">';
 
+        $('#imgDonate').attr('src', 'donateDes.png');
     });
     
     
     </script>
 
-<div style='text-align: center; ' class='mainDiv'>
+<div class='mainDiv'>
     <!-- img id='imgHaunt' width='100%' / -->
-    <h1 style="width: 600px; height: 80px">即將發生了一件恐怖的事...</h1>
+    <h1 class='loadingText'>即將發生了一件恐怖的事...</h1>
 </div>
 <div style='text-align: center; '>
     <a id='aDonate'><img id='imgDonate' width='100%' /></a>

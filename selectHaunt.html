@@ -127,16 +127,17 @@
             //var url = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http%3A%2F%2Fimgur.com%2F' + urlArray[hauntNum - 1];
             //var survivalUrl = 'https://ccumaya.github.io/showHauntImg.html?t=t&i=wergfs_14';
             //var survivalUrl = 'https://ccumaya.github.io/showHauntImg.html?t=t&i='+ urlArray[hauntNum - 1];
-            var url = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ encodeURI(aUrl(hauntNum, isTraitor));
+            var url = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ encodeURI(aUrl(hauntNum, isTraitor, true));
             return url;
         }
-        function aUrl(hauntNum, isTraitor) {
+        function aUrl(hauntNum, isTraitor, isFullUrl) {
             //var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
             //var url = 'http://imgur.com/' + urlArray[hauntNum - 1];
             var idxType = (isTraitor) ? 't' : 's';
             var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
-            var url = 'https://ccumaya.github.io/showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
-            return url;
+            var fullUrl = 'https://ccumaya.github.io/showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
+            var partialUrl = 'showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
+            return isFullUrl ? fullUrl : partialUrl;
         }
         //1.base作祟表/2.widow作祟表/3.平衡調整 URL
         function aUrl_meta(typeNum) {
@@ -596,8 +597,8 @@
             $('#imgSurvival').attr('src', simgurl);
             $('#imgTraitor').attr('src', timgurl);
             //
-            var saurl = aUrl(hauntNum, false);
-            var taurl = aUrl(hauntNum, true);
+            var saurl = aUrl(hauntNum, false, false);
+            var taurl = aUrl(hauntNum, true, false);
             $('#aSurvival').attr('href', saurl);
             $('#aTraitor').attr('href', taurl);
 
