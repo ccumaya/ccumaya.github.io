@@ -26,8 +26,107 @@
 body{
     background-color: #72583a;
 }
+</style>
+
+<style>
+h1 {
+    position: relative;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 5em;
+    
+}
+h1:before {
+    content: attr(data-text);
+    position: absolute;
+    overflow: hidden;
+    max-width: 12em;
+    white-space: nowrap;
+    color: rgb(95, 43, 43);
+    animation: loading 5s linear;
 
 
+}
+@keyframes loading {
+    0% {
+        max-width: 0em;
+    }
+    10% {  /* 讓前10%只顯示很小的距離，產生延遲效果 */
+        max-width: 0.01em;
+    }
+}
+</style>
+
+<style>
+#popupPnl
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.87);
+    margin: 1em;
+    height: 90%;
+    /* display:table-cell;  */
+
+    /* 圓角矩形 */
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.msg1, .msg2, .msg3
+{
+    display: block;
+}
+.msg1
+{
+    text-align: center;
+}
+.msg2
+{
+    font-size: xx-large;
+    margin: 0 0 2em 0;
+    text-align: center;
+}
+.msg3
+{
+    font-size: xx-large;
+    padding: 0 5em 0 5em;
+    margin: 0 0 1em 0;
+}
+
+#survivalTodo
+{
+    display:none;
+}
+#traitorTodo
+{
+    display:none;
+}
+
+#startReadPnl
+{
+    display: block;
+    text-align: center;
+}
+
+#startReadBtn
+{
+    display: inline-block;
+    border: 4px outset #ffb09c;
+    background: linear-gradient(-20deg, #b16b3d, #f0ae8d, #ffffff);
+    padding:0.5em;
+
+    /* 圓角矩形 */
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+
+    font-size:xx-large;
+}
+
+</style>
+
+<style>
 .mainDiv
 {
     text-align: center; 
@@ -103,6 +202,20 @@ body{
 
         $('#imgDonate').attr('src', 'donateDes.png');
         $('#aDonate').attr('href', 'stickershop_imgmap.html');
+
+        //蓋板說明
+        if(t=='t')
+        {
+            $('#traitorTodo').css('display', 'inline-block');
+        }
+        else
+        {
+            $('#survivalTodo').css('display', 'inline-block');
+        }
+
+        $('#startReadBtn').click(function(){
+            $('#popupPnl').css('display','none');
+        });
     });
     
     
@@ -113,6 +226,28 @@ body{
 </div>
 <div style='text-align: center; '>
     <a id='aDonate' target='_blank'><img id='imgDonate' width='100%' /></a>
+</div>
+
+
+<div id='popupPnl'>
+    <span class='msg1'>    
+        <h1 data-text="發生了一件恐怖的事...">發生了一件恐怖的事...</h1>
+    </span>
+
+    <span class='msg2'>
+        遊戲的勝利條件，自此開始展開。
+    </span>
+
+    <span id='survivalTodo' class='msg3'>
+        請安靜閱讀以下劇本，五分鐘後，英雄們再來討論如何行動。
+    </span>
+    <span id='traitorTodo' class='msg3'>
+        請叛徒先遠離遊戲桌，安靜研讀以下專屬劇本，五分鐘後，再回遊戲桌繼續行動。
+    </span>
+
+    <div id='startReadPnl'>
+        <span id='startReadBtn'>開始閱讀</span>
+    </div>
 </div>
 
 </body>
