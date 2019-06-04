@@ -34,6 +34,28 @@
     <script>
         $(document).ready(function(e) {
             $('img[usemap]').rwdImageMaps();
+
+            var lots_of_stuff_already_done = false;
+
+            $('area').on('click', function(e) {
+                if (lots_of_stuff_already_done) {
+                    lots_of_stuff_already_done = false; // reset flag
+                    return; // let the event bubble away
+                }
+
+                e.preventDefault();
+
+                // do lots of stuff
+                gtag('event', 'click', {
+                  eventCategory: 'Outbound Link',
+                  //eventAction: 'click',
+                  eventLabel: event.target.href
+                });
+
+                lots_of_stuff_already_done = true; // set flag
+                $(this).trigger('click');
+            });
+
         });
     </script>
 
