@@ -231,10 +231,33 @@ h1:before {
         //延遲5s再顯示
         //delayedSpanDiv
         setTimeout(function(){ 
-            $('#delayedSpanDiv').css('color','#000000');
+            $('.msg2').css('color','#000000');
+            delayShowMsg3();
          }, 5000);
+
+
+
     });
-    
+    function delayShowMsg3()
+    {
+        setTimeout(function(){ 
+            $('.msg3').css('color','#000000');
+            delayShowMsg4();
+         }, 5000);
+    }
+    function delayShowMsg4()
+    {
+        setTimeout(function(){ 
+            $('.msg4').css('color','#000000');
+            delayShowBtn();
+         }, 5000);
+    }
+    function delayShowBtn()
+    {
+        setTimeout(function(){ 
+            $('#startReadPnl').css('color','#000000');
+         }, 5000);
+    }
     
     </script>
 
@@ -251,23 +274,22 @@ h1:before {
         <h1 data-text="發生了一件恐怖的事...">發生了一件恐怖的事...</h1>
     </span>
 
-    <div id='delayedSpanDiv' style='color:#ffffff;'>
-        <span class='msg2'>
+        <span class='msg2' style='color:#ffffff;'>
             小屋的真實面貌，逐漸明朗...<br />
             遊戲規則，在此稍做調整。
         </span>
 
-        <span id='survivalTodo' class='msg3'>
+        <span id='survivalTodo' class='msg3'  style='color:#ffffff;'>
             請安靜閱讀以下劇本，五分鐘後，英雄們再來討論如何行動。
         </span>
-        <span id='traitorTodo' class='msg3'>
+        <span id='traitorTodo' class='msg4'  style='color:#ffffff;'>
             請叛徒先遠離遊戲桌，安靜研讀以下專屬劇本，五分鐘後，再回遊戲桌繼續行動。
         </span>
 
-        <div id='startReadPnl'>
+        <div id='startReadPnl'  style='color:#ffffff;'>
             <span id='startReadBtn'>開始閱讀</span>
         </div>
-    </div>
+
 </div>
 
 </body>
