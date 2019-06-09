@@ -225,8 +225,17 @@ h1:before {
             $('#survivalTodo').css('display', 'inline-block');
         }
 
+        //開始閱讀鈕
         $('#startReadBtn').click(function(){
             $('#popupPnl').css('display','none');
+
+            //ga事件
+            gtag('event', '閱讀劇本', {
+                'send_to': 'UA-5007622-2',
+                'event_category': (t=='s' ? '英雄' : '叛徒'),
+                //eventAction: 'click',
+                'event_label': i
+            });
         });
 
         //延遲5s再顯示

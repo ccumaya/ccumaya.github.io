@@ -625,6 +625,15 @@
             //顯示叛徒者
             $('#spTraitor').text(traitorArray[hauntNum - 1]);
             $('#spNote').text(equalJudge);
+
+            //ga事件
+            gtag('event', '作祟劇本', {
+                  'send_to': 'UA-5007622-2',
+                  'event_category': 'Outbound Link',
+                  //eventAction: 'click',
+                  'event_label': hauntNum
+                });
+
         }
     </script>
 
