@@ -46,9 +46,9 @@
                 e.preventDefault();
 
                 // do lots of stuff
-                gtag('event', 'click', {
+                gtag('event', '點擊單一貼圖', {
                   'send_to': 'UA-5007622-2',
-                  'event_category': 'Outbound Link',
+                  'event_category': '貼圖連結',
                   //eventAction: 'click',
                   'event_label': event.target.href
                 });
@@ -57,6 +57,12 @@
                 $(this).trigger('click');
             });
 
+            gtag('event', '觀看贊助頁', {
+                  'send_to': 'UA-5007622-2',
+                  'event_category': '貼圖連結',
+                  //eventAction: 'click',
+                  'event_label': event.target.href
+                });
         });
     </script>
 
