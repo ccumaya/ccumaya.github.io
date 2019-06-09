@@ -227,6 +227,12 @@ h1:before {
         $('#startReadBtn').click(function(){
             $('#popupPnl').css('display','none');
         });
+
+        //延遲6s再顯示
+        //delayedSpanDiv
+        setTimeout(function(){ 
+            $('#delayedSpanDiv').css('display','block');
+         }, 3000);
     });
     
     
@@ -245,20 +251,22 @@ h1:before {
         <h1 data-text="發生了一件恐怖的事...">發生了一件恐怖的事...</h1>
     </span>
 
-    <span class='msg2'>
-        小屋的真實面貌，逐漸明朗...<br />
-        遊戲規則，在此稍做調整。
-    </span>
+    <div id='delayedSpanDiv' style='display:none;'>
+        <span class='msg2'>
+            小屋的真實面貌，逐漸明朗...<br />
+            遊戲規則，在此稍做調整。
+        </span>
 
-    <span id='survivalTodo' class='msg3'>
-        請安靜閱讀以下劇本，五分鐘後，英雄們再來討論如何行動。
-    </span>
-    <span id='traitorTodo' class='msg3'>
-        請叛徒先遠離遊戲桌，安靜研讀以下專屬劇本，五分鐘後，再回遊戲桌繼續行動。
-    </span>
+        <span id='survivalTodo' class='msg3'>
+            請安靜閱讀以下劇本，五分鐘後，英雄們再來討論如何行動。
+        </span>
+        <span id='traitorTodo' class='msg3'>
+            請叛徒先遠離遊戲桌，安靜研讀以下專屬劇本，五分鐘後，再回遊戲桌繼續行動。
+        </span>
 
-    <div id='startReadPnl'>
-        <span id='startReadBtn'>開始閱讀</span>
+        <div id='startReadPnl'>
+            <span id='startReadBtn'>開始閱讀</span>
+        </div>
     </div>
 </div>
 
