@@ -114,7 +114,7 @@ h1:before {
     display:none;
 }
 
-#startReadPnl
+#startReadPnl, #loadingImgDiv
 {
     display: block;
     text-align: center;
@@ -211,7 +211,8 @@ h1:before {
         //var h1 = document.getElementsByTagName('h1')[0];
         //h1.innerHTML = '<img src="'+imgUrl+'" alt="' + h1.innerHTML + '" class="hauntImg">';
 
-        $('#imgDonate').attr('src', 'donateDes.png');
+        $('#imgDonate').attr('src', 'image/donateDes.png');
+        $('#loadingImg').attr('src', 'image/loading.gif');
         $('#aDonate').attr('href', 'stickershop_imgmap.html');
 
         //蓋板說明
@@ -243,25 +244,27 @@ h1:before {
         setTimeout(function(){ 
             $('.msg3').css('color','#000000');
             delayShowMsg4();
-         }, 5000);
+         }, 2000);
     }
     function delayShowMsg4()
     {
         setTimeout(function(){ 
             $('.msg4').css('color','#000000');
             delayShowBtn();
-         }, 5000);
+         }, 1000);
     }
     function delayShowBtn()
     {
         setTimeout(function(){ 
             $('#startReadPnl').css('color','#000000');
-         }, 5000);
+            $('#loadingImgDiv').toggle();//切換可視
+            $('#startReadPnl').toggle();//切換可視
+         }, 2000);
     }
     
     </script>
 
-<div class='mainDiv'>
+<div class='mainDiv' >
     <img id='imgHaunt' />
 </div>
 <div style='text-align: center; '>
@@ -286,7 +289,10 @@ h1:before {
             請叛徒先遠離遊戲桌，安靜研讀以下專屬劇本，五分鐘後，再回遊戲桌繼續行動。
         </span>
 
-        <div id='startReadPnl'  style='color:#ffffff;'>
+        <div id='loadingImgDiv' >
+            <img id='loadingImg' />
+        </div>
+        <div id='startReadPnl' style='color:#ffffff; display: none;'>
             <span id='startReadBtn'>開始閱讀</span>
         </div>
 
