@@ -245,6 +245,8 @@ h1:before {
                 //eventAction: 'click',
                 'event_label': i
             });
+
+            timesUpPlay();
         });
 
         //延遲5s再顯示
@@ -277,10 +279,22 @@ h1:before {
             $('#startReadPnl').css('color','#000000');
             $('#loadingImgDiv').toggle();//切換可視
             $('#startReadPnl').toggle();//切換可視
+
          }, 2000);
     }
-    
+    function timesUpPlay()
+    {
+        setTimeout(function(){ 
+            
+            //沒辦法先預載，時間到了再播。只好要播時，再載
+            $('#timesUpAudio').attr('src', 'image/TheXFilesTheme.mp3');//開始閱讀再下載音訊，避免搶主圖頻寬
+            
+         }, 1000 * 60 * 5 );
+    }
+
     </script>
+
+<audio id="timesUpAudio" ></audio>
 
 <div class='mainDiv' >
     <img id='imgHaunt' />
