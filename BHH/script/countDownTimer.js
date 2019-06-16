@@ -27,7 +27,11 @@ timeCtrl.timerTick = function()
     var passedSec = Math.round(timeDiff);//取整數，秒
 
     if(passedSec >= timeCtrl.countDownForSecs )//超過30秒，停止timer
+    {
         clearTimeout(timeCtrl.timerId);
+        timeCtrl.timesUpCallback();
+    }
+        
 
     var timerStr = timeCtrl.formatSecond(timeCtrl.countDownForSecs - passedSec);
     $(timeCtrl.countDownTxtSelector).text(timerStr);
