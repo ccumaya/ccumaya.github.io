@@ -218,7 +218,7 @@ h1:before {
             (t=='s' ? 'survival(1-101)' : 'traitor(1-101)') + '/' +
             i + '.jpg';
 
-        $('#imgHaunt').attr('src', imgUrl);
+        $('#imgHaunt').attr('src', imgUrl);//劇本主圖
 
         //new Image(imgUrl); // preloads the image
         //var h1 = document.getElementsByTagName('h1')[0];
@@ -229,13 +229,13 @@ h1:before {
         $('#aDonate').attr('href', 'stickershop_imgmap.html');
 
         //蓋板說明
-        if(t=='t')
+        if(t=='s')
         {
-            $('#traitorTodo').css('display', 'inline-block');
+            $('#survivalTodo').css('display', 'inline-block');
         }
         else
         {
-            $('#survivalTodo').css('display', 'inline-block');
+            $('#traitorTodo').css('display', 'inline-block');
         }
 
         //開始閱讀鈕
@@ -251,10 +251,16 @@ h1:before {
             });
 
             //啟動閱讀倒數
-            timeCtrl.init(300, '#countDownTxt');
-            timeCtrl.setTimsUpCallback(timesUpPlay);
+            //timeCtrl.init(300, '#countDownTxt');
+            //timeCtrl.setTimsUpCallback(timesUpPlay);
 
-            //setTimesUpPlay();
+            if(t=='s')
+            {
+                survivalTimeSlot_3min();
+            }else{
+                traitorTimeSlot_5min();
+            }
+
         });
 
         //延遲5s再顯示
@@ -289,13 +295,39 @@ h1:before {
             $('#startReadPnl').toggle();//切換可視
          }, 2000);
     }
-    function setTimesUpPlay()
+/*     function setTimesUpPlay()
     {
         setTimeout(timesUpPlay, 1000 * 60 * 5 );
-    }
+    } */
     function timesUpPlay(){
              //沒辦法先預載，時間到了再播。只好要播時，再載
             $('#timesUpAudio').attr('src', 'image/TheXFilesTheme.mp3');//開始閱讀再下載音訊，避免搶主圖頻寬       
+    }
+    function timesUpAudio1(){
+             //沒辦法先預載，時間到了再播。只好要播時，再載
+            $('#timesUpAudio').attr('src', 'image/cricketNight.mp3');
+            survivalTimeSlot_2min();//蟲叫了，再接2分鐘
+    }
+    function timesUpAudio2(){
+             //沒辦法先預載，時間到了再播。只好要播時，再載
+            $('#timesUpAudio').attr('src', 'image/thunderstorm.mp3');
+    }
+
+    function survivalTimeSlot_3min()//英雄3分鐘後接2分鐘閱讀時間加討論
+    {
+        timeCtrl.init(180, '#countDownTxt');
+        timeCtrl.setTimsUpCallback(timesUpAudio1);
+    }
+    function survivalTimeSlot_2min()
+    {
+        timeCtrl.init(120, '#countDownTxt');
+        timeCtrl.setTimsUpCallback(timesUpAudio2);
+    }
+
+    function traitorTimeSlot_5min()//叛徒5分鐘閱讀時間
+    {
+        timeCtrl.init(300, '#countDownTxt');
+        timeCtrl.setTimsUpCallback(timesUpAudio2);        
     }
 
     </script>
@@ -324,10 +356,12 @@ h1:before {
         </span>
 
         <span id='survivalTodo' class='msg3'  style='color:#ffffff;'>
-            請安靜閱讀以下劇本，五分鐘後，英雄們再來討論如何行動。
+            請安靜閱讀以下劇本，<span  style='color:#ff7300;'>3分鐘</span>後，英雄們再來討論如何行動。
         </span>
         <span id='traitorTodo' class='msg3'  style='color:#ffffff;'>
-            請叛徒先遠離遊戲桌，安靜研讀以下專屬劇本，五分鐘後，再回遊戲桌繼續行動。
+            請叛徒先<span  style='color:#ff7300;'>遠離遊戲桌</span>，
+            安靜研讀以下<span  style='color:#ff7300;'>專屬劇本</span>，
+            <span  style='color:#ff7300;'>5分鐘</span>後，再回遊戲桌繼續行動。
         </span>
 
         <div id='loadingImgDiv' >
