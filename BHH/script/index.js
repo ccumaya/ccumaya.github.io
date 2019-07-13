@@ -164,7 +164,7 @@ function aUrl(hauntNum, isTraitor, isFullUrl) {
     //var url = 'http://imgur.com/' + urlArray[hauntNum - 1];
     var idxType = (isTraitor) ? 't' : 's';
     var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
-    var fullUrl = 'https://ccumaya.github.io/showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
+    var fullUrl = 'https://ccumaya.github.io/BHH/showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
     var partialUrl = 'showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
     return isFullUrl ? fullUrl : partialUrl;
 }

@@ -14,6 +14,7 @@
   gtag('config', 'UA-5007622-2');
 </script>
 
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:600&display=swap" rel="stylesheet">
 
   <script>
     var getUrlParameter = function getUrlParameter(sParam) {
@@ -36,6 +37,7 @@
 <style>
 body{
     background-color: #72583a;
+    font-family: 'Noto Serif TC', serif;
 }
 </style>
 
@@ -267,6 +269,7 @@ h1:before {
         //delayedSpanDiv
         setTimeout(function(){ 
             $('.msg2').css('color','#000000');
+            $('.msg2h').css('color','#ff7300');
             delayShowMsg3();
          }, 5000);
 
@@ -277,6 +280,7 @@ h1:before {
     {
         setTimeout(function(){ 
             $('.msg3').css('color','#000000');
+            $('.msg3h').css('color','#ff7300');
             delayShowMsg4();
          }, 2000);
     }
@@ -284,6 +288,7 @@ h1:before {
     {
         setTimeout(function(){ 
             $('.msg4').css('color','#000000');
+            $('.msg4h').css('color','#ff7300');
             delayShowBtn();
          }, 1000);
     }
@@ -350,19 +355,19 @@ h1:before {
         <h1 data-text="發生了一件恐怖的事...">發生了一件恐怖的事...</h1>
     </span>
 
-        <span class='msg2' style='color:#ffffff;'>
+        <div class='msg2' style='color:#ffffff;'>
             小屋的真實面貌，逐漸明朗...<br />
             遊戲規則，在此稍做調整。
-        </span>
+        </div>
 
-        <span id='survivalTodo' class='msg3'  style='color:#ffffff;'>
-            請安靜閱讀以下劇本，<span  style='color:#ff7300;'>3分鐘</span>後，英雄們再來討論如何行動。
-        </span>
-        <span id='traitorTodo' class='msg3'  style='color:#ffffff;'>
-            請叛徒先<span  style='color:#ff7300;'>遠離遊戲桌</span>，
-            安靜研讀以下<span  style='color:#ff7300;'>專屬劇本</span>，
-            <span  style='color:#ff7300;'>5分鐘</span>後，再回遊戲桌繼續行動。
-        </span>
+        <div id='survivalTodo' class='msg3'  style='color:#ffffff;'>
+            請安靜閱讀以下劇本，<span  class='msg3h' style='color:#ffffff;'>3分鐘</span>後，英雄們再來討論如何行動。
+        </div>
+        <div id='traitorTodo' class='msg3'  style='color:#ffffff;'>
+            請叛徒先<span  class='msg3h' style='color:#ffffff;'>遠離遊戲桌</span>，
+            安靜研讀以下<span  class='msg3h' style='color:#ffffff;'>專屬劇本</span>，
+            <span  class='msg3h' style='color:#ffffff;'>5分鐘</span>後，再回遊戲桌繼續行動。
+        </div>
 
         <div id='loadingImgDiv' >
             <img id='loadingImg' />
