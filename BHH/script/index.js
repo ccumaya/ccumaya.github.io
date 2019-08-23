@@ -156,7 +156,7 @@ function imgUrl(hauntNum, isTraitor) {
     //var survivalUrl = 'https://ccumaya.github.io/showHauntImg.html?t=t&i=wergfs_14';
     //var survivalUrl = 'https://ccumaya.github.io/showHauntImg.html?t=t&i='+ urlArray[hauntNum - 1];
     var data = encodeURIComponent(aUrl(hauntNum, isTraitor, true));
-    var url = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ data;
+    var url = 'http://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+ data;
     return url;
 }
 function aUrl(hauntNum, isTraitor, isFullUrl) {

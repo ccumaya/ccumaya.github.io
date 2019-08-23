@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
   <title></title>
   
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -335,6 +336,12 @@ h1:before {
         timeCtrl.setTimsUpCallback(timesUpAudio2);        
     }
 
+    function forceCloseTransition()//強制關閉轉場引導div（有手機無法觸發引到，卡住）
+    {
+        event.stopPropagation();//避免事件冒泡
+        $('#popupPnl').css('display','none');
+    }
+
     </script>
 
 <audio id="timesUpAudio" autoplay ></audio>
@@ -351,7 +358,7 @@ h1:before {
 
 
 <div id='popupPnl'>
-    <span class='msg1'>    
+    <span class='msg1' onclick="forceCloseTransition();">    
         <h1 data-text="發生了一件恐怖的事...">發生了一件恐怖的事...</h1>
     </span>
 
