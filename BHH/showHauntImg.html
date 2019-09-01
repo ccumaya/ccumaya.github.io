@@ -7,342 +7,26 @@
   
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5007622-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-5007622-2');
-</script>
-
+<!-- font-family: 'Noto Serif TC', serif; --><!-- 襯線，明體 -->
 <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC:600&display=swap" rel="stylesheet">
 
-  <script>
-    var getUrlParameter = function getUrlParameter(sParam) {
-        var sPageURL = decodeURIComponent(window.location.search.substring(1));
-        var sURLVariables = sPageURL.split('&');
-        var sParameterName;
-        var i;
-
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
-
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : sParameterName[1];
-            }
-        }
-    };
-
-    </script>
-
-<style>
-body{
-    background-color: #72583a;
-    font-family: 'Noto Serif TC', serif;
-}
-</style>
-
-<style>
-h1 {
-    position: relative;
-    color: rgba(255, 255, 255, 0.3);
-    font-size: 5em;
-    
-}
-h1:before {
-    content: attr(data-text);
-    position: absolute;
-    overflow: hidden;
-    max-width: 12em;
-    white-space: nowrap;
-    color: rgb(95, 43, 43);
-    animation: loading 5s linear;
-
-
-}
-@keyframes loading {
-    0% {
-        max-width: 0em;
-    }
-    10% {  /* 讓前10%只顯示很小的距離，產生延遲效果 */
-        max-width: 0.01em;
-    }
-}
-</style>
-
-<style>
-#popupPnl
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.87);
-    margin: 1em;
-    height: 90%;
-    /* display:table-cell;  */
-
-    /* 圓角矩形 */
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-}
-
-.msg1, .msg2, .msg3
-{
-    display: block;
-}
-.msg1
-{
-    text-align: center;
-}
-.msg2
-{
-    font-size: 3em;
-    margin: 0 0 2em 0;
-    text-align: center;
-}
-.msg3
-{
-    font-size: 3em;
-    padding: 0 3em 0 3em;
-    margin: 0 0 5em 0;
-}
-
-#survivalTodo
-{
-    display:none;
-}
-#traitorTodo
-{
-    display:none;
-}
-
-#startReadPnl, #loadingImgDiv
-{
-    display: block;
-    text-align: center;
-}
-
-#startReadBtn
-{
-    display: inline-block;
-    border: 4px outset #ffb09c;
-    background: linear-gradient(-20deg, #b16b3d, #f0ae8d, #ffffff);
-    padding:0.5em;
-
-    /* 圓角矩形 */
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-
-    font-size:xx-large;
-}
-
-</style>
-
-<style>
-.mainDiv
-{
-    text-align: center; 
-    border: 1px double #7883df;
-
-    /* 圓角矩形 */
-    /* -webkit-border-radius: 90px;
-    -moz-border-radius: 90px;
-    border-radius: 90px;   */
-}
-
-.loadingText
-{
-    min-width: 600px;
-    min-height: 80px;
-}
-
-#imgHaunt
-{
-    width: 100%;
-    vertical-align: bottom;
-
-    /* 上半圓角矩形 */
-    -webkit-border-top-left-radius: 90px;
-    -webkit-border-top-right-radius: 90px;
-    -moz-border-radius-topleft: 90px;
-    -moz-border-radius-topright: 90px;
-    border-top-left-radius: 90px;
-    border-top-right-radius: 90px;
-}
-
-.countDownDiv
-{
-    position: absolute;
-    top: 0.5em;
-    left: 1.5em;
-    font-size: 3em;
-    color: rgba(187, 93, 27, 0.66);
-}
-
-#imgDonate
-{
-    width: 100%;
-    background-color: #ffffff;
-
-    /* 下半圓角矩形 */
-    -webkit-border-bottom-right-radius: 90px;
-    -webkit-border-bottom-left-radius: 90px;
-    -moz-border-radius-bottomright: 90px;
-    -moz-border-radius-bottomleft: 90px;
-    border-bottom-right-radius: 90px;
-    border-bottom-left-radius: 90px;
-}
-
-</style>
+<!-- 思源粗體 font-family: 'Noto Sans TC', sans-serif; --><!-- 無襯線，黑體 -->
+<!-- link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet" -->
 
 </head>
 <body>
+
+    <link href="style/showHauntImg.css" rel="stylesheet" type="text/css" />
 
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
 
-    <script src="script/countDownTimer.js"></script>
+    <script src="script/countDownTimer.min.js"></script>
+    <script src="script/showHauntImg.min.js"></script>
 
-<script>
-
-    $(function () {
-        console.log("ready!");
-
-        //以下是有參數的狀況才會觸發
-        var t = getUrlParameter('t'); //idxType
-        var i = getUrlParameter('i'); //idx
-
-        //var timgurl = imgUrl(hauntNum, true);
-        var imgUrl = 'https://raw.githubusercontent.com/ccumaya/BetrayalAtHouseOnTheHillHauntSelector/master/HauntImg/'+
-            (t=='s' ? 'survival(1-101)' : 'traitor(1-101)') + '/' +
-            i + '.jpg';
-
-        $('#imgHaunt').attr('src', imgUrl);//劇本主圖
-
-        //new Image(imgUrl); // preloads the image
-        //var h1 = document.getElementsByTagName('h1')[0];
-        //h1.innerHTML = '<img src="'+imgUrl+'" alt="' + h1.innerHTML + '" class="hauntImg">';
-
-        $('#imgDonate').attr('src', 'image/donateDes.png');
-        $('#loadingImg').attr('src', 'image/loading.gif');
-        $('#aDonate').attr('href', 'stickershop_imgmap.html');
-
-        //蓋板說明
-        if(t=='s')
-        {
-            $('#survivalTodo').css('display', 'inline-block');
-        }
-        else
-        {
-            $('#traitorTodo').css('display', 'inline-block');
-        }
-
-        //開始閱讀鈕
-        $('#startReadBtn').click(function(){
-            $('#popupPnl').css('display','none');
-
-            //ga事件
-            gtag('event', '閱讀劇本', {
-                'send_to': 'UA-5007622-2',
-                'event_category': (t=='s' ? '英雄' : '叛徒'),
-                //eventAction: 'click',
-                'event_label': i
-            });
-
-            //啟動閱讀倒數
-            //timeCtrl.init(300, '#countDownTxt');
-            //timeCtrl.setTimsUpCallback(timesUpPlay);
-
-            if(t=='s')
-            {
-                survivalTimeSlot_3min();
-            }else{
-                traitorTimeSlot_5min();
-            }
-
-        });
-
-        //延遲5s再顯示
-        //delayedSpanDiv
-        setTimeout(function(){ 
-            $('.msg2').css('color','#000000');
-            $('.msg2h').css('color','#ff7300');
-            delayShowMsg3();
-         }, 5000);
-
-
-
-    });
-    function delayShowMsg3()
-    {
-        setTimeout(function(){ 
-            $('.msg3').css('color','#000000');
-            $('.msg3h').css('color','#ff7300');
-            delayShowMsg4();
-         }, 2000);
-    }
-    function delayShowMsg4()
-    {
-        setTimeout(function(){ 
-            $('.msg4').css('color','#000000');
-            $('.msg4h').css('color','#ff7300');
-            delayShowBtn();
-         }, 1000);
-    }
-    function delayShowBtn()
-    {
-        setTimeout(function(){ 
-            $('#startReadPnl').css('color','#000000');
-            $('#loadingImgDiv').toggle();//切換可視
-            $('#startReadPnl').toggle();//切換可視
-         }, 2000);
-    }
-/*     function setTimesUpPlay()
-    {
-        setTimeout(timesUpPlay, 1000 * 60 * 5 );
-    } */
-    function timesUpPlay(){
-             //沒辦法先預載，時間到了再播。只好要播時，再載
-            $('#timesUpAudio').attr('src', 'image/TheXFilesTheme.mp3');//開始閱讀再下載音訊，避免搶主圖頻寬       
-    }
-    function timesUpAudio1(){
-             //沒辦法先預載，時間到了再播。只好要播時，再載
-            $('#timesUpAudio').attr('src', 'image/cricketNight.mp3');
-            survivalTimeSlot_2min();//蟲叫了，再接2分鐘
-    }
-    function timesUpAudio2(){
-             //沒辦法先預載，時間到了再播。只好要播時，再載
-            $('#timesUpAudio').attr('src', 'image/thunderstorm.mp3');
-    }
-
-    function survivalTimeSlot_3min()//英雄3分鐘後接2分鐘閱讀時間加討論
-    {
-        timeCtrl.init(180, '#countDownTxt');
-        timeCtrl.setTimsUpCallback(timesUpAudio1);
-    }
-    function survivalTimeSlot_2min()
-    {
-        timeCtrl.init(120, '#countDownTxt');
-        timeCtrl.setTimsUpCallback(timesUpAudio2);
-    }
-
-    function traitorTimeSlot_5min()//叛徒5分鐘閱讀時間
-    {
-        timeCtrl.init(300, '#countDownTxt');
-        timeCtrl.setTimsUpCallback(timesUpAudio2);        
-    }
-
-    function forceCloseTransition()//強制關閉轉場引導div（有手機無法觸發引到，卡住）
-    {
-        event.stopPropagation();//避免事件冒泡
-        $('#popupPnl').css('display','none');
-    }
-
-    </script>
 
 <audio id="timesUpAudio" autoplay ></audio>
 
@@ -350,6 +34,9 @@ h1:before {
     <img id='imgHaunt' />
     <div class="countDownDiv">
         <span id='countDownTxt'></span>
+    </div>
+    <div class="hauntTypeDiv">
+        <span id='hauntTypeTxt'></span>
     </div>
 </div>
 <div style='text-align: center; '>

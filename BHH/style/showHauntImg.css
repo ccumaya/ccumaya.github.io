@@ -1,0 +1,166 @@
+
+body{
+    background-color: #72583a;
+    font-family: 'Noto Serif TC', serif;
+}
+
+
+h1 {
+    position: relative;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 5em;
+    
+}
+h1:before {
+    content: attr(data-text);
+    position: absolute;
+    overflow: hidden;
+    max-width: 12em;
+    white-space: nowrap;
+    color: rgb(95, 43, 43);
+    animation: loading 5s linear;
+
+
+}
+@keyframes loading {
+    0% {
+        max-width: 0em;
+    }
+    10% {  /* 讓前10%只顯示很小的距離，產生延遲效果 */
+        max-width: 0.01em;
+    }
+}
+
+
+
+#popupPnl
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.87);
+    margin: 1em;
+    height: 90%;
+    /* display:table-cell;  */
+
+    /* 圓角矩形 */
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.msg1, .msg2, .msg3
+{
+    display: block;
+}
+.msg1
+{
+    text-align: center;
+}
+.msg2
+{
+    font-size: 3em;
+    margin: 0 0 2em 0;
+    text-align: center;
+}
+.msg3
+{
+    font-size: 3em;
+    padding: 0 3em 0 3em;
+    margin: 0 0 5em 0;
+}
+
+#survivalTodo
+{
+    display:none;
+}
+#traitorTodo
+{
+    display:none;
+}
+
+#startReadPnl, #loadingImgDiv
+{
+    display: block;
+    text-align: center;
+}
+
+#startReadBtn
+{
+    display: inline-block;
+    border: 4px outset #ffb09c;
+    background: linear-gradient(-20deg, #b16b3d, #f0ae8d, #ffffff);
+    padding:0.5em;
+
+    /* 圓角矩形 */
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+
+    font-size:xx-large;
+}
+
+
+.mainDiv
+{
+    text-align: center; 
+    border: 1px double #7883df;
+
+    /* 圓角矩形 */
+    /* -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    border-radius: 90px;   */
+}
+
+.loadingText
+{
+    min-width: 600px;
+    min-height: 80px;
+}
+
+#imgHaunt
+{
+    width: 100%;
+    vertical-align: bottom;
+
+    /* 上半圓角矩形 */
+    -webkit-border-top-left-radius: 90px;
+    -webkit-border-top-right-radius: 90px;
+    -moz-border-radius-topleft: 90px;
+    -moz-border-radius-topright: 90px;
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+}
+
+.countDownDiv
+{
+    position: absolute;
+    top: 0.5em;
+    left: 1.5em;
+    font-size: 3em;
+    color: rgba(187, 93, 27, 0.66);
+}
+.hauntTypeDiv
+{
+    position: absolute;
+    top: 0.5em;
+    right: 1.5em;
+    font-size: 3em;
+    color: rgba(187, 93, 27, 0.66);
+}
+
+#imgDonate
+{
+    width: 100%;
+    background-color: #ffffff;
+
+    /* 下半圓角矩形 */
+    -webkit-border-bottom-right-radius: 90px;
+    -webkit-border-bottom-left-radius: 90px;
+    -moz-border-radius-bottomright: 90px;
+    -moz-border-radius-bottomleft: 90px;
+    border-bottom-right-radius: 90px;
+    border-bottom-left-radius: 90px;
+}
+
+

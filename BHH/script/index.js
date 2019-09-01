@@ -164,8 +164,9 @@ function aUrl(hauntNum, isTraitor, isFullUrl) {
     //var url = 'http://imgur.com/' + urlArray[hauntNum - 1];
     var idxType = (isTraitor) ? 't' : 's';
     var urlArray = (isTraitor) ? traitorHauntUrlArray : survivalHauntUrlArray;
-    var fullUrl = 'https://ccumaya.github.io/BHH/showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
-    var partialUrl = 'showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1];
+    var parpareUrlArray = (isTraitor) ? survivalHauntUrlArray : traitorHauntUrlArray;
+    var fullUrl = 'https://ccumaya.github.io/BHH/showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1]+'&p='+parpareUrlArray[hauntNum - 1];
+    var partialUrl = 'showHauntImg.html?t='+idxType+'&i='+ urlArray[hauntNum - 1]+'&p='+parpareUrlArray[hauntNum - 1];
     return isFullUrl ? fullUrl : partialUrl;
 }
 //1.base作祟表/2.widow作祟表/3.平衡調整 URL
@@ -583,49 +584,3 @@ var getUrlParameter = function getUrlParameter(sParam) {
         
                 }
           
-
-
-       $(function () {
-            console.log("ready!");
-
-            reloadHsltRoom();
-            reloadHsltOmen();
-
-            $(document).delegate('input[name=verSelect]', "change", function () {
-                reloadHsltRoom();
-                reloadHsltOmen();
-            });
-
-            $(document).delegate('#btnHaunt', "click", function () {
-                //findHaunt();
-                setUrlPara();
-            });
-
-            //載入額外說明表
-            $('#aBaseTable').attr('href', aUrl_meta(1));
-            $('#aWidowTable').attr('href', aUrl_meta(2));
-            $('#aBaseBalence').attr('href', aUrl_meta(3));
-
-
-            //以下是有參數的狀況才會觸發
-            var v = getUrlParameter('v'); //version
-            var r = getUrlParameter('r'); //room
-            var o = getUrlParameter('o'); //omen
-
-            if ((v != undefined)
-                && (r != undefined)
-                && (o != undefined)) {
-                if (v == 'base')
-                    $('#radBase').prop('checked', true);
-                else if (v == 'widow')
-                    $('#radWidowExt').prop('checked', true);
-
-                reloadHsltRoom();
-                reloadHsltOmen();
-
-                $('#hsltRoom').val(r);
-                $('#hsltOmen').val(o);
-
-                findHaunt();
-            }
-        });

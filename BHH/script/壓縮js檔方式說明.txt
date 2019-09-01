@@ -1,0 +1,7 @@
+
+已安裝VS Code擴充套件 Minify
+於開始的js文件內，按F1會開啟命令列，選Minify，
+就會產生 {dirname}.min.[css|js] 檔案
+
+
+
