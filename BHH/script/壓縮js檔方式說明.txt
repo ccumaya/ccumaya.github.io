@@ -1,7 +1,20 @@
 
-�w�w��VS Code�X�R�M�� Minify
-��}�l��js��󤺡A��F1�|�}�ҩR�O�C�A��Minify�A
-�N�|���� {dirname}.min.[css|js] �ɮ�
+
+● 工作區說明
+
+工作區類似vs的方案，可儲存設定檔(.code-workspace)，供下次直接開啟。
+可用資料夾/檔案方式加入程式碼進工作區。
+
+● 壓縮js檔方式說明
+
+已安裝VS Code擴充套件 Minify
+於開始的js文件內，按F1會開啟命令列，選Minify，
+就會產生 {dirname}.min.[css|js] 檔案
+
+● 執行js方式說明
+
+已安裝VS Code擴充套件 open in browser
+於工作區的某.html 檔上，右鍵選單「Open In Default Browser」即可。
 
 
 
