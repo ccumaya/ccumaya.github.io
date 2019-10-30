@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>山中小屋雲端劇本</title>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5007622-2"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+    <style>
+    body
+    {
+        font-size:4em;
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+    input[type=radio]
+    {
+        height: 4em;
+        width: 4em;
+    }
+    input[type=button]
+    {
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+    select
+    {
+        /* font-size:1em; */
+        height: 4em;
+        font-size:1em;
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+    
+    
+    </style>
+
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="script/index.min.js"></script>
+
+</head>
+<body>
+    <div>
+        <div style='text-align: center;'><span>山中小屋雲端劇本</span></div>
+        <div style='text-align: right; font-size: 2rem; margin: 0 4rem 0 0;'><span>優化作祟閱讀體驗</span></div>
+    </div>
+    <div style='background-color: #a2f193; padding: 20px; text-align: center;'>
+        <input id="radBase" name="verSelect" type="radio" value="base" />
+        <label for="radBase">基本版　</label>
+        <input id="radWidowExt" checked="checked" name="verSelect" type="radio" value="widow" />
+        <label for="radWidowExt">望夫台擴充</label>
+    </div>
+    <div style='background-color: #fff68d; padding: 20px; text-align: center;'>
+        <!-- div style='display:inline-block;'>房間</div -->
+        <div style='display:inline-block;'>
+            <div style='display:none;'>
+                <input id="radB1" checked="checked" name="floorSelect" type="radio" value="b1" />
+                    <label for="radB1">地下室</label>
+                <input id="radF1" name="floorSelect" type="radio" value="f1" />
+                    <label for="radF1">一樓</label>
+                <input id="radF2" name="floorSelect" type="radio" value="f2" />
+                    <label for="radF2">二樓</label>
+                <input id="radF3" name="floorSelect" type="radio" value="f3" />
+                    <label for="radF3">屋頂</label>
+            </div>
+            <select id="hsltRoom" name="hsltRoom" >
+            </select>
+        </div>
+    </div>
+    <div style='background-color: #e89732; padding: 20px; text-align: center;'>
+        <!-- div style='display:block;'>預兆</div -->
+            <select id="hsltOmen" name="hsltOmen" >
+            </select>
+    </div>
+    <div style='background-color: #9e805a; padding: 20px; text-align: center; '>
+        <input id="btnHaunt" type="button" value="作祟" 
+            style='font-size: larger; padding: 10px 20px 10px 20px;'/>
+    </div>
+
+    <div style='text-align: center; font-size:0.5em; padding:1em;'>
+        <p>感謝 weselyong@ptt, GeniusF@ptt 提供中文化劇本，並感謝熱心的中文化團隊成員。</p>
+        <p style='color:#9e805a;'>有這些逐字逐句的中文翻譯，讓我們更融入原始設計的遊戲體驗。萬分感謝！！</p>
+    </div>
+
+
+
+
+    <div style='text-align: center;'>
+        <span id='hauntNum'></span><br />
+        <span id='spTraitor'></span><br /><br />
+        <span id='spNote' style='color:#9e805a;font-size:0.5em;'></span>
+    </div>
+    <div style='text-align: center; padding: 200px 0 200px 0;'>
+        <span>英雄劇本</span><br />
+        <a id='aSurvival'><img id='imgSurvival' width='75%' /></a>
+    </div>
+    <div style='text-align: center; padding: 400px 0 400px 0;'>
+        <span>叛徒劇本</span><br />
+        <a id='aTraitor'><img id='imgTraitor' width='75%' /></a>
+    </div>
+<!--     <div style='text-align: center; padding: 400px 0 400px 0;'>
+        <a id='aBaseTable'><span>基本作祟表</span></a><br /><br />
+        <a id='aWidowTable'><span>擴充作祟表</span></a><br /><br />
+        <a id='aBaseBalence'><span>1-50平衡表</span></a><br /><br />
+        <a id='aAcknowledgement'><span>感謝</span></a><br /><br />
+    </div> -->
+</body>
+</html>
