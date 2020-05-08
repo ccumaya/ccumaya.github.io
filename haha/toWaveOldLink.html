@@ -17,44 +17,83 @@
     <script>
         $(function(){
             //$('#oldLink').on("change keyup paste", function() {
-            $('#oldLink').on("paste", function(e) {
+            $('#oldLink').on("paste", function(e){
+                let currentVal = e.originalEvent.clipboardData.getData('text');
+                transfor(currentVal);
+                //event.stopPropagation();
+                //$('#BtnManual').css('display','none');
+            });
+            // $('#oldLink').on("change keyup", function(e) {
+            //     //$('#BtnManual').css('display','inline-block');
+            // });
+
+            // $('#BtnManual').on("click", function(e){
+            //     //$('#BtnManual').css('display','none');
+            //     let currentVal = $('#oldLink').val().trim();
+            //     transfor(currentVal);
+            // })
+        });
+
+        transfor = function(currentVal) {
                 //var currentVal = $(this).val().trim();
                 //let currentVal = $('#oldLink').val().trim();
                 //無法直接取得paste的內容，需用奇怪方法
                 //https://stackoverflow.com/questions/11605415/jquery-bind-to-paste-event-how-to-get-the-content-of-the-paste/11605419
-                var currentVal = e.originalEvent.clipboardData.getData('text');
+                //var currentVal = e.originalEvent.clipboardData.getData('text');
 
                 //新格式
                 //https://wavelive.onelink.me/tEt5?pid=deeplink_replay&c=deeplink_replay&w_play=6284566b-3f58-4b84-adba-665870f8d61d&is_retargeting=true&af_dp=wavelive%3A%2F%2F
+                //https://wavelive.onelink.me/tEt5?pid=deeplink_live&c=deeplink_live&w_live=041acc9c-bd24-43e7-a05c-af4dafaee9f9&is_retargeting=true&af_dp=wavelive%3A%2F%2F
                 //舊格式
                 //https://wave.com.tw/plays/6284566b-3f58-4b84-adba-665870f8d61d
+                //https://wave.com.tw/lives/6284566b-3f58-4b84-adba-665870f8d61d
 
-                let githubURL = new URL(currentVal);
+                let httpsIdx = currentVal.indexOf('https://');
+                if(httpsIdx === -1)
+                {
+                    $('#spChg').html('格式不符合喔~');
+                    return;
+                }
+
+                let maybeUrl = currentVal.substr(httpsIdx);
+                
+
+                let githubURL = new URL(maybeUrl);
                 //let githubURL = new URL('https://wavelive.onelink.me/tEt5?pid=deeplink_replay&c=deeplink_replay&w_play=6284566b-3f58-4b84-adba-665870f8d61d&is_retargeting=true&af_dp=wavelive%3A%2F%2F');
                 let params = githubURL.searchParams;
-                let guid = params.get('w_play');
+                let guid_play = params.get('w_play');
+                let guid_live = params.get('w_live');
 
-                if(guid.length === 36)
+                if((guid_play!=null)&&(guid_play.length === 36))
                 {
-                    let newUrl = 'https://wave.com.tw/plays/'+ guid;
-                    $('#spChg').html('<a href="' + newUrl + '" target="_blank">請點這邊</a>');
+                    let newUrl = 'https://wave.com.tw/plays/'+ guid_play;
+                    $('#spChg').html('<a href="' + newUrl + '" target="_blank">請點這邊聽回放</a>');
+                }
+                else if((guid_live!=null)&&(guid_live.length === 36))
+                {
+                    let newUrl = 'https://wave.com.tw/plays/'+ guid_live;
+                    $('#spChg').html('<a href="' + newUrl + '" target="_blank">請點這邊進入Live</a>');
+                }
+                else
+                {
+                    $('#spChg').html('格式不符合喔~');
                 }
 
                 //let idxPlay = currentVal
 
 
-            });
-        });
-
+            }
+        
     </script>
 
 </head>
     <body>
 
         貼上分享的wave網址：<br />
-        <textarea id='oldLink' cols="250" rows="5"></textarea>
+        <textarea id='oldLink' cols="100" rows="5"></textarea>
+        <br />
 
+        <!--button type="button" id='BtnManual' >轉換</button -->
         <span id='spChg'></span>
-
     </body>
 </html>
