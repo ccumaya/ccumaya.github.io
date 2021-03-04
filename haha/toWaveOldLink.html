@@ -12,7 +12,12 @@
         gtag('config', 'UA-5007622-2');
     </script>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
     <script>
         $(function(){
@@ -85,16 +90,38 @@
             }
         
     </script>
+<style>
+a#apb:link, a#apb:visited, a#apb:hover, a#apb:active
+{
+    color: #795548;
+    text-decoration:none;
+}
+</style>
 
 </head>
     <body>
-
-        貼上分享的wave網址：<br />
-        <textarea id='oldLink' cols="100" rows="5"></textarea>
-        <br />
-
-        <!--button type="button" id='BtnManual' >轉換</button -->
-        <span id='spChg'></span>
-        <span style="margin:630px;font-size:small;color: #795548;">IG: pom_beret</span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    貼上分享的wave網址：
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <textarea id='oldLink' cols="100" rows="5" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <!--button type="button" id='BtnManual' >轉換</button -->
+                    <span id='spChg'></span>
+                </div>
+                <div class="col-sm-4 pull-right text-right">
+                    <a id='apb' href='https://www.instagram.com/pom_beret/' target="_blank">
+                        <span style="font-size:small;">IG: pom_beret</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
